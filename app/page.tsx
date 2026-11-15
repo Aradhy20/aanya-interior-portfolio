@@ -7,10 +7,18 @@ import {
   ArrowUpRight,
   MapPin,
   Mail,
-  Instagram,
+  Phone,
   Youtube,
+  Instagram,
   Menu,
-  Sparkles
+  Download,
+  BookOpen,
+  GraduationCap,
+  Award,
+  Sparkles,
+  QrCode,
+  Languages,
+  CheckCircle2
 } from "lucide-react";
 import {
   PROJECTS,
@@ -23,7 +31,8 @@ import {
   EDUCATION_FACTS,
   WORKSHOPS,
   SOFTWARE_TOOLS,
-  DESIGN_INTERESTS,
+  DESIGN_CAPABILITIES,
+  LANGUAGES,
   APPROACH_PILLARS,
   DESIGN_QUOTE
 } from "@/data/site-config";
@@ -33,6 +42,7 @@ import MobileMenuDrawer from "@/components/MobileMenuDrawer";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
 
 const BOOK_URL = SITE_CONFIG.portfolioBookUrl;
+const RESUME_URL = SITE_CONFIG.resumeDownloadUrl;
 
 export default function Home() {
   const [filter, setFilter] = useState<ProjectFilter>("All");
@@ -71,11 +81,19 @@ export default function Home() {
           </button>
 
           <nav className="main-nav" aria-label="Main navigation">
-            <a href="#about">About</a>
-            <a href="#work">Selected work</a>
-            <a href="#skills">Tools & Focus</a>
+            <a href="#about">About & CV</a>
+            <a href="#work">Selected Work</a>
+            <a href="#skills">Software & Skills</a>
             <a href="#approach">Approach</a>
-            <a href="#archive">Portfolio book</a>
+            <a href="#archive">Portfolio Book</a>
+            <a
+              href={RESUME_URL}
+              download="Aanya-Jain-Resume.pdf"
+              className="nav-resume-link"
+              title="Download verified resume (PDF)"
+            >
+              <Download size={13} /> Resume
+            </a>
             <a className="nav-contact" href="#contact">
               Let’s connect <ArrowUpRight size={14} />
             </a>
@@ -95,29 +113,44 @@ export default function Home() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="eyebrow">
-            <span className="eyebrow-dot" /> DESIGNING WITH INTENTION{" "}
+            <span className="eyebrow-dot" /> {SITE_CONFIG.studentStatus.toUpperCase()}{" "}
             <span className="eyebrow-line" />
           </div>
-          <p className="hero-kicker">Industrial design · Spatial experiences · Furniture</p>
+          <p className="hero-kicker">
+            {SITE_CONFIG.role} · Spatial Experiences · Furniture Design
+          </p>
           <h1>
             Thoughtful spaces.<br />
             <em>Meaningful</em> living.
           </h1>
           <p className="hero-intro">
-            I’m Aanya Jain, a design student exploring sustainable, ergonomic
-            and human-centred ideas across interiors, furniture and everyday
-            spaces.
+            {SITE_CONFIG.profileDescription}
           </p>
+
           <div className="hero-actions">
             <a className="button button-dark" href="#work">
-              Explore selected work <ArrowDown size={15} />
+              Explore Projects <ArrowDown size={15} />
             </a>
-            <a className="text-link" href={BOOK_URL} target="_blank" rel="noreferrer">
-              Open portfolio book <ArrowUpRight size={15} />
+            <a
+              className="button button-light"
+              href={RESUME_URL}
+              download="Aanya-Jain-Resume.pdf"
+            >
+              <Download size={14} /> Download Resume
+            </a>
+            <a
+              className="text-link"
+              href={BOOK_URL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View Full Portfolio <ArrowUpRight size={15} />
             </a>
           </div>
+
           <div className="hero-location">
-            <MapPin size={14} /> {SITE_CONFIG.location}
+            <MapPin size={14} /> {SITE_CONFIG.location} <span>·</span>{" "}
+            {SITE_CONFIG.university} ({SITE_CONFIG.degree}, {SITE_CONFIG.graduationYears})
           </div>
         </motion.div>
 
@@ -130,7 +163,7 @@ export default function Home() {
           <div className="portrait-frame">
             <img
               src="/images/aanya-portrait.webp"
-              alt="Aanya Jain in a sage green blazer"
+              alt="Aanya Jain — Interior and Industrial Design Student"
             />
             <div className="portrait-stamp">
               <span>AJ</span>
@@ -144,7 +177,7 @@ export default function Home() {
           <div className="hero-note">
             <span>01 / 06</span>
             <span>
-              Selected projects
+              Academic projects
               <br />
               2025—2026
             </span>
@@ -175,8 +208,9 @@ export default function Home() {
             </h2>
           </div>
           <p className="section-side-copy">
-            A collection of academic explorations in space, furniture and the
-            details that shape everyday experience.
+            A curated collection of six academic studio explorations in spatial
+            shelter, space-saving furniture, rooftop hospitality, institutional
+            accessibility, and passive cooling.
           </p>
         </div>
 
@@ -210,12 +244,12 @@ export default function Home() {
         </motion.div>
 
         <div className="work-footnote">
-          <span className="tiny-mark">✳</span> Select any project to explore its
-          in-depth case study, design methodology, technical drawings, and material palette.
+          <span className="tiny-mark">✳</span> Select any project card to open its
+          complete editorial case study with research, process, technical drawings, and material palette.
         </div>
       </motion.section>
 
-      {/* About Section */}
+      {/* CV / About Section */}
       <motion.section
         className="about-section"
         id="about"
@@ -227,44 +261,77 @@ export default function Home() {
         <div className="shell about-grid">
           <div className="about-lead">
             <p className="eyebrow">
-              A LITTLE ABOUT ME <span className="eyebrow-line" />
+              CURRICULUM VITAE <span className="eyebrow-line" />
             </p>
             <h2>
               Curiosity first.
               <br />
               <em>People always.</em>
             </h2>
-            <p className="about-copy">{SITE_CONFIG.longBio}</p>
-            <p className="about-copy muted">{SITE_CONFIG.processBio}</p>
-            <a
-              href={BOOK_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="underlined-link"
-            >
-              See the complete portfolio <ArrowUpRight size={15} />
-            </a>
+            <p className="about-copy">{SITE_CONFIG.profileDescription}</p>
+            <p className="about-copy muted">{SITE_CONFIG.profileFollowUp}</p>
+
+            <div className="about-cta-row">
+              <a
+                href={RESUME_URL}
+                download="Aanya-Jain-Resume.pdf"
+                className="button button-dark"
+              >
+                <Download size={14} /> Download Verified Resume (PDF)
+              </a>
+              <a
+                href={BOOK_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="underlined-link"
+              >
+                View full portfolio flipbook <ArrowUpRight size={15} />
+              </a>
+            </div>
           </div>
 
           <div className="about-facts">
+            {/* Education Credentials */}
+            <div className="cv-category-header">
+              <GraduationCap size={15} />
+              <span>EDUCATION</span>
+            </div>
+
             {EDUCATION_FACTS.map((fact) => (
               <div key={fact.index} className="fact-card">
                 <span className="fact-index">{fact.index}</span>
                 <div className="fact-main">
                   <h3>{fact.title}</h3>
                   <p>{fact.subtitle}</p>
+                  {fact.location && (
+                    <small className="fact-sub-location">
+                      <MapPin size={10} /> {fact.location}
+                    </small>
+                  )}
+                  {fact.details && (
+                    <small className="fact-sub-desc">{fact.details}</small>
+                  )}
                 </div>
                 <span className="fact-date">{fact.date}</span>
               </div>
             ))}
 
+            {/* Workshops & Certificates */}
+            <div className="cv-category-header" style={{ marginTop: "24px" }}>
+              <Award size={15} />
+              <span>WORKSHOPS & CERTIFICATES</span>
+            </div>
+
             <div className="fact-card workshops">
-              <span className="fact-index">04 / WORKSHOPS & CERTIFICATES</span>
+              <span className="fact-index">CREDENTIALS</span>
               <div className="workshop-list">
                 {WORKSHOPS.map((workshop) => (
-                  <div key={workshop.topic}>
-                    <b>{workshop.institution}</b>
-                    <span>{workshop.topic}</span>
+                  <div key={workshop.topic} className="workshop-row">
+                    <div>
+                      <b>{workshop.institution}</b>
+                      <span className="workshop-topic">{workshop.topic}</span>
+                    </div>
+                    <span className="workshop-tag">{workshop.type}</span>
                   </div>
                 ))}
               </div>
@@ -273,7 +340,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Skills & Tools Section */}
+      {/* Software and Skills Section */}
       <motion.section
         className="section shell skills-section"
         id="skills"
@@ -285,33 +352,55 @@ export default function Home() {
         <div className="section-heading compact">
           <div>
             <p className="eyebrow">
-              TOOLS & CAPABILITIES <span className="eyebrow-line" />
+              TOOLKIT & COMPETENCIES <span className="eyebrow-line" />
             </p>
             <h2>
-              Ideas into <em>form.</em>
+              Software & <em>skills.</em>
             </h2>
           </div>
           <p className="section-side-copy">
-            A growing toolkit for exploring, developing and communicating design
-            ideas.
+            A specialized toolkit spanning computer-aided drafting, 3D modeling,
+            space planning, post-production, and sustainable design thinking.
           </p>
         </div>
 
         <div className="skills-layout">
-          <div className="skill-label">SOFTWARE I WORK WITH</div>
-          <div className="tool-list">
+          {/* Software Grid */}
+          <div className="skill-label">SOFTWARE TOOLS</div>
+          <div className="software-cards-grid">
             {SOFTWARE_TOOLS.map((tool, index) => (
-              <span key={tool}>
-                <i>{String(index + 1).padStart(2, "0")}</i>
-                {tool}
-              </span>
+              <div key={tool.name} className="software-card">
+                <span className="software-index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="software-info">
+                  <h4>{tool.name}</h4>
+                  <small>{tool.category}</small>
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="skill-label">DESIGN INTERESTS</div>
-          <div className="interest-list">
-            {DESIGN_INTERESTS.map((interest) => (
-              <span key={interest}>{interest}</span>
+          {/* Design Capabilities */}
+          <div className="skill-label">DESIGN CAPABILITIES</div>
+          <div className="capabilities-grid">
+            {DESIGN_CAPABILITIES.map((capability) => (
+              <div key={capability} className="capability-pill">
+                <CheckCircle2 size={13} className="capability-icon" />
+                <span>{capability}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Languages */}
+          <div className="skill-label">LANGUAGES</div>
+          <div className="languages-row">
+            {LANGUAGES.map((lang) => (
+              <div key={lang.name} className="language-badge">
+                <Languages size={13} />
+                <strong>{lang.name}</strong>
+                <span>({lang.fluency})</span>
+              </div>
             ))}
           </div>
         </div>
@@ -358,7 +447,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Portfolio Book Flipbook Archive */}
+      {/* Portfolio Book Flipbook Archive & QR Section */}
       <motion.section
         className="section shell archive-section"
         id="archive"
@@ -376,20 +465,22 @@ export default function Home() {
               Look a little <em>closer.</em>
             </h2>
           </div>
-          <a
-            href={BOOK_URL}
-            className="text-link"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open full-screen book <ArrowUpRight size={15} />
-          </a>
+          <div className="archive-actions">
+            <a
+              href={BOOK_URL}
+              className="text-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open full-screen book <ArrowUpRight size={15} />
+            </a>
+          </div>
         </div>
 
         <div className="book-frame">
           <div className="book-topline">
-            <span>AANYA JAIN · PORTFOLIO</span>
-            <span>FLIPBOOK ARCHIVE ↗</span>
+            <span>AANYA JAIN · PORTFOLIO FLIPBOOK</span>
+            <span>HEYZINE LIVE VIEWER ↗</span>
           </div>
           <iframe
             src={BOOK_URL}
@@ -400,7 +491,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Contact Section */}
+      {/* Contact Section With QR Code & Resume */}
       <motion.section
         className="contact-section"
         id="contact"
@@ -410,41 +501,111 @@ export default function Home() {
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="shell contact-inner">
-          <p className="eyebrow">
-            HAVE A PROJECT OR AN IDEA? <span className="eyebrow-line" />
-          </p>
-          <h2>
-            Let’s make room
-            <br />
-            for <em>possibility.</em>
-          </h2>
+          <div className="contact-main-grid">
+            <div className="contact-copy-col">
+              <p className="eyebrow">
+                HAVE A PROJECT OR AN IDEA? <span className="eyebrow-line" />
+              </p>
+              <h2>
+                Let’s make room
+                <br />
+                for <em>possibility.</em>
+              </h2>
+              <p className="contact-intro-text">
+                I am open to interior and industrial design internships,
+                academic design research, and collaborative spatial projects.
+              </p>
 
-          <div className="contact-bottom">
-            <a
-              className="button button-light"
-              href={`mailto:${SITE_CONFIG.email}`}
-            >
-              Start a conversation <ArrowUpRight size={16} />
-            </a>
+              <div className="contact-action-row">
+                <a
+                  className="button button-light"
+                  href={`mailto:${SITE_CONFIG.email}`}
+                >
+                  <Mail size={15} /> Send an Email <ArrowUpRight size={14} />
+                </a>
+                <a
+                  className="button button-dark"
+                  href={RESUME_URL}
+                  download="Aanya-Jain-Resume.pdf"
+                >
+                  <Download size={15} /> Download Resume (PDF)
+                </a>
+              </div>
 
-            <div className="contact-links">
-              <a href={`mailto:${SITE_CONFIG.email}`}>
-                <Mail size={15} /> Email
-              </a>
-              <a
-                href={SITE_CONFIG.instagram}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Instagram size={15} /> Instagram
-              </a>
-              <a
-                href={SITE_CONFIG.youtube}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Youtube size={15} /> YouTube
-              </a>
+              <div className="contact-channels-list">
+                <a
+                  href={`mailto:${SITE_CONFIG.email}`}
+                  className="channel-item"
+                >
+                  <Mail size={16} />
+                  <span>{SITE_CONFIG.email}</span>
+                </a>
+                <a
+                  href={`tel:${SITE_CONFIG.phone.replace(/\s+/g, "")}`}
+                  className="channel-item"
+                >
+                  <Phone size={16} />
+                  <span>{SITE_CONFIG.phoneDisplay}</span>
+                  <small className="phone-verified-tag">Resume Verified</small>
+                </a>
+                <div className="channel-item non-link">
+                  <MapPin size={16} />
+                  <span>{SITE_CONFIG.fullLocation}</span>
+                </div>
+                <a
+                  href={SITE_CONFIG.youtubeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="channel-item"
+                >
+                  <Youtube size={16} />
+                  <span>YouTube: {SITE_CONFIG.youtubeDisplayName}</span>
+                  <ArrowUpRight size={13} />
+                </a>
+                <a
+                  href={SITE_CONFIG.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="channel-item"
+                >
+                  <Instagram size={16} />
+                  <span>Instagram Profile</span>
+                  <ArrowUpRight size={13} />
+                </a>
+              </div>
+            </div>
+
+            {/* Real QR Code Card */}
+            <div className="contact-qr-col">
+              <div className="portfolio-qr-card">
+                <div className="qr-badge">
+                  <QrCode size={13} /> PORTFOLIO ACCESS
+                </div>
+                <div className="qr-img-frame">
+                  <img
+                    src="/images/portfolio-qr.svg"
+                    alt="Scan QR code to view Aanya Jain full portfolio"
+                    className="qr-img"
+                    width={180}
+                    height={180}
+                  />
+                </div>
+                <div className="qr-caption">
+                  <strong>Scan to view full portfolio</strong>
+                  <p>
+                    Point your mobile camera to open Aanya’s live interactive
+                    Heyzine flipbook.
+                  </p>
+                </div>
+                <a
+                  href={BOOK_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="qr-direct-link"
+                >
+                  <BookOpen size={13} /> Open flipbook directly ↗
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -458,7 +619,17 @@ export default function Home() {
             <span>{SITE_CONFIG.role.toUpperCase()}</span>
           </a>
           <span>Designed with curiosity · 2026</span>
-          <a href="#top">Back to top ↑</a>
+          <div className="footer-links">
+            <a href={RESUME_URL} download="Aanya-Jain-Resume.pdf">
+              Resume PDF
+            </a>
+            <span>·</span>
+            <a href={BOOK_URL} target="_blank" rel="noreferrer">
+              Portfolio Book
+            </a>
+            <span>·</span>
+            <a href="#top">Back to top ↑</a>
+          </div>
         </div>
       </footer>
 

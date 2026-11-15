@@ -2,7 +2,17 @@
 
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowUpRight, Mail, Instagram, Youtube, BookOpen } from "lucide-react";
+import {
+  X,
+  ArrowUpRight,
+  Mail,
+  Youtube,
+  Instagram,
+  Download,
+  BookOpen,
+  Phone,
+  MapPin
+} from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-config";
 
 type Props = {
@@ -11,12 +21,12 @@ type Props = {
 };
 
 const NAV_LINKS = [
-  { href: "#about", label: "About", number: "01" },
-  { href: "#work", label: "Selected Work", number: "02" },
-  { href: "#skills", label: "Tools & Focus", number: "03" },
+  { href: "#about", label: "About & CV", number: "01" },
+  { href: "#work", label: "Selected Projects", number: "02" },
+  { href: "#skills", label: "Software & Capabilities", number: "03" },
   { href: "#approach", label: "Design Approach", number: "04" },
-  { href: "#archive", label: "Portfolio Book", number: "05" },
-  { href: "#contact", label: "Contact & Connect", number: "06" }
+  { href: "#archive", label: "Portfolio Book & QR", number: "05" },
+  { href: "#contact", label: "Contact & Resume", number: "06" }
 ];
 
 export default function MobileMenuDrawer({ isOpen, onClose }: Props) {
@@ -89,17 +99,32 @@ export default function MobileMenuDrawer({ isOpen, onClose }: Props) {
             </nav>
 
             <div className="mobile-drawer-footer">
-              <a
-                href={SITE_CONFIG.portfolioBookUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="button button-dark mobile-book-btn"
-                onClick={onClose}
-              >
-                <BookOpen size={15} />
-                <span>Open Original Portfolio Book</span>
-                <ArrowUpRight size={14} />
-              </a>
+              <div className="mobile-action-buttons">
+                <a
+                  href={SITE_CONFIG.resumeDownloadUrl}
+                  download="Aanya-Jain-Resume.pdf"
+                  className="button button-dark mobile-btn"
+                  onClick={onClose}
+                >
+                  <Download size={15} />
+                  <span>Download Resume (PDF)</span>
+                </a>
+                <a
+                  href={SITE_CONFIG.portfolioBookUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="button button-light mobile-btn"
+                  onClick={onClose}
+                >
+                  <BookOpen size={15} />
+                  <span>Open Full Portfolio</span>
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
+
+              <div className="mobile-location-tag">
+                <MapPin size={12} /> {SITE_CONFIG.fullLocation}
+              </div>
 
               <div className="mobile-drawer-socials">
                 <a
@@ -107,28 +132,36 @@ export default function MobileMenuDrawer({ isOpen, onClose }: Props) {
                   aria-label="Email Aanya Jain"
                   className="drawer-social-link"
                 >
-                  <Mail size={16} />
+                  <Mail size={15} />
                   <span>Email</span>
                 </a>
                 <a
-                  href={SITE_CONFIG.instagram}
+                  href={`tel:${SITE_CONFIG.phone.replace(/\s+/g, "")}`}
+                  aria-label="Call Aanya Jain"
+                  className="drawer-social-link"
+                >
+                  <Phone size={15} />
+                  <span>Call</span>
+                </a>
+                <a
+                  href={SITE_CONFIG.youtubeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`YouTube channel ${SITE_CONFIG.youtubeDisplayName}`}
+                  className="drawer-social-link"
+                >
+                  <Youtube size={15} />
+                  <span>YouTube</span>
+                </a>
+                <a
+                  href={SITE_CONFIG.instagramUrl}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram profile"
                   className="drawer-social-link"
                 >
-                  <Instagram size={16} />
+                  <Instagram size={15} />
                   <span>Instagram</span>
-                </a>
-                <a
-                  href={SITE_CONFIG.youtube}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="YouTube channel"
-                  className="drawer-social-link"
-                >
-                  <Youtube size={16} />
-                  <span>YouTube</span>
                 </a>
               </div>
             </div>

@@ -1,20 +1,20 @@
-export type TechnicalSpec = {
-  label: string;
-  value: string;
-};
-
 export type DrawingDetail = {
   title: string;
   description: string;
 };
 
 export type CaseStudy = {
-  challenge: string;
-  concept: string;
-  process: string[];
-  technicalSpecs: TechnicalSpec[];
-  materials: string[];
-  drawings: DrawingDetail[];
+  semester: string;
+  location: string;
+  conceptTitle: string;
+  conceptDescription: string;
+  problemBrief: string;
+  researchSiteAnalysis: string[];
+  designDevelopment: string[];
+  technicalDrawings: DrawingDetail[];
+  materialsFinishes: string[];
+  finalOutcome: string;
+  learningOutcomes: string[];
   keyHighlights: string[];
 };
 
@@ -40,63 +40,78 @@ export const PROJECTS: Project[] = [
     category: "Spatial",
     type: "Modular shelter",
     place: "Bagru, Rajasthan",
-    year: "7th semester · 2026",
+    year: "7th Semester, 2026",
     image: "/images/worker-module.webp",
-    imageAlt: "Worker’s Module project board and modular shelter concept",
+    imageAlt: "Worker’s Module project presentation board and modular shelter concept",
     summary:
-      "A temporary, modular space designed around the everyday needs of construction workers: a place to rest, eat, sleep, wash and feel protected.",
+      "A temporary modular structure designed for construction workers to rest, eat, sleep and use essential facilities during work.",
     detail:
-      "The proposal responds to a 7-acre construction site and its access, climate and movement conditions. The design explores repeatable modular components, shaded seating, drinking water, resting space, storage and open areas that support workers and accompanying families.",
+      "The proposal responds to a 7-acre construction site in Bagru and its access, climatic, and movement conditions. The design explores repeatable modular components, shaded seating, drinking water, resting space, storage and open areas that support workers and accompanying families.",
     focus: [
-      "Site and climate analysis",
-      "Modular planning",
-      "Rest, wash and dining zones",
-      "Shade and ventilation"
+      "Construction worker requirements",
+      "7-acre site analysis",
+      "Access and circulation",
+      "Climatic conditions & sun-wind analysis",
+      "Shaded resting spaces",
+      "Drinking water & eating areas",
+      "Modular layout exploration"
     ],
     caseStudy: {
-      challenge:
-        "Construction workers in Bagru face extreme Rajasthani heat exceeding 44°C, airborne dust, lack of potable hydration, and an absence of safe, dignified spaces for resting, sanitation, or family childcare on active multi-acre industrial sites.",
-      concept:
-        "“Dignity in Transit” — an adaptable, deployable scaffolding-based modular shelter that can be erected rapidly, reconfigured as construction phases progress, and disassembled with zero site degradation.",
-      process: [
-        "On-site observational study of worker daily shifts, meal breaks, and accompanying family routines in Bagru",
-        "Solar path and wind analysis for hot-dry arid microclimate mitigation",
-        "Modular grid space planning balancing individual resting pods, communal eating pavilions, and secure crèche daycare areas",
-        "Integration of passive evaporative cooling through localized unglazed terracotta water vessels (matkas)"
+      semester: "7th Semester, 2026",
+      location: "Bagru, Rajasthan",
+      conceptTitle: "Design for Workers on a Construction Site",
+      conceptDescription:
+        "A temporary modular structure designed for construction workers to rest, eat, sleep and use essential facilities during work on active building sites.",
+      problemBrief:
+        "Construction workers on large infrastructure and commercial sites in Bagru face intense Rajasthani heat, dry dust, long shifts, and a lack of organized shelter. The brief called for a practical, low-cost, repeatable modular system addressing hydration, meal breaks, restorative sleep, tool/personal storage, and dignity for worker families.",
+      researchSiteAnalysis: [
+        "7-acre site analysis evaluating major vehicular delivery routes and pedestrian worker footpaths",
+        "Climatic study of hot-dry desert conditions with midday temperatures frequently exceeding 42°C",
+        "Sun-path and seasonal wind analysis prioritizing prevailing summer wind channels for cross-ventilation",
+        "Assessment of daily worker routines: shift handovers, lunch gathering circles, and resting intervals",
+        "Safety evaluation separating active construction hazards from domestic rest and crèche zones"
       ],
-      technicalSpecs: [
-        { label: "Site Area", value: "7 Acres (Bagru Industrial Corridor)" },
-        { label: "Structural Grid", value: "3.2m × 3.2m Standard Scaffolding Bay" },
-        { label: "Assembly Time", value: "48 Hours per 10-unit cluster" },
-        { label: "Capacity", value: "35–40 workers + family daycare support" }
+      designDevelopment: [
+        "Initial zoning matrix segregating noisy access roads from peaceful sleeping quarters",
+        "Exploration of lightweight scaffolding-based modular frames allowing rapid on-site assembly and reconfiguration",
+        "Development of shaded communal seating surrounding central water points (matkas/pots)",
+        "Dedicated secure lockers and raised storage to protect workers’ personal belongings and bedding from dust and moisture",
+        "Integration of deep overhanging thatch eaves to minimize direct solar radiant heat gain"
       ],
-      materials: [
-        "Corrugated Galvanized Iron (CGI) double-roof with 150mm convective air gap",
-        "Locally woven bamboo thatch screens for diurnal glare filtration and cross-breeze",
-        "Compressed stabilized earth blocks (CSEB) providing thermal mass",
-        "Unglazed terracotta water containers for passive evaporative cooling"
-      ],
-      drawings: [
+      technicalDrawings: [
         {
-          title: "Master Zoning & Circulation Plan",
+          title: "Master Site Layout & Circulation Plan",
           description:
-            "Rigorous separation between active heavy-machinery corridors, shaded pedestrian paths, and serene residential shelter units."
+            "Zoning of the 7-acre parcel showing buffer zones between heavy machinery routes, material staging, and worker residential modules."
         },
         {
-          title: "Modular Bay Axonometric Detail",
+          title: "Modular Unit Floor Plans & Elevations",
           description:
-            "Demountable pin-joint scaffolding connections with modular timber decking and lightweight fabric awnings."
+            "Dimensioned architectural plans detailing sleeping modules, communal dining pavilions, wash zones, and child daycare areas."
         },
         {
-          title: "Passive Cooling Section",
+          title: "Passive Cooling Longitudinal Section",
           description:
-            "High-level ridge clerestory vents facilitating stack ventilation and nocturnal heat exhaust."
+            "Sectional analysis displaying double-roof air gap ventilation, clerestory heat exhaust, and shaded airflow pathways."
         }
       ],
+      materialsFinishes: [
+        "Corrugated galvanized iron (CGI) double-roof with convective ventilation cavity",
+        "Locally woven bamboo thatch screens for glare reduction and breeze filtration",
+        "Compressed stabilized earth blocks (CSEB) for thermal mass and site boundary enclosures",
+        "Unglazed terracotta water containers providing natural evaporative cooling"
+      ],
+      finalOutcome:
+        "A complete architectural presentation board featuring site master planning, modular unit layouts, environmental sections, and human-centred communal spaces tailored for worker welfare.",
+      learningOutcomes: [
+        "Understanding large-scale construction site logistics, worker anthropometrics, and ergonomic rest needs",
+        "Translating extreme climatic constraints into effective passive cooling and ventilation strategies",
+        "Designing modular systems capable of fast assembly, relocation, and reuse across multiple project phases"
+      ],
       keyHighlights: [
-        "100% demountable and reusable materials across consecutive project lifecycles",
-        "Dedicated shaded crèche and nursing space for worker families",
-        "Measurable microclimate temperature reduction via double-skin ventilation"
+        "Modular repeatable units adaptable to varying site topologies",
+        "Clear zoning between active work routes and sheltered family zones",
+        "Zero-waste demountable structure with reusable building components"
       ]
     }
   },
@@ -104,65 +119,79 @@ export const PROJECTS: Project[] = [
     number: "02",
     title: "Centre Table",
     category: "Furniture",
-    type: "Space-saving furniture",
-    place: "Furniture design",
-    year: "7th semester · 2026",
+    type: "Furniture Design",
+    place: "Furniture Design Studio",
+    year: "7th Semester, 2026",
     image: "/images/centre-table.webp",
-    imageAlt: "Centre Table furniture concept and technical presentation",
+    imageAlt: "Centre Table furniture concept, exploded view and technical presentation board",
     summary:
-      "A compact centre table with four nesting stools, designed to create extra seating while keeping the living area uncluttered.",
+      "A centre table designed with four nesting stools that can be stored below the table and used as additional seating when required.",
     detail:
-      "The design combines a slatted wooden top with a tubular metal frame. The stools tuck beneath the table when not in use, making the piece economical in space and material. The portfolio documents form exploration, technical drawings, an exploded view, joinery and material choices.",
+      "The design combines a slatted wooden top with a tubular metal frame. The four stools tuck neatly beneath the table when not in use, making the piece economical in space and material while providing extra seating on demand.",
     focus: [
-      "Nesting stool mechanism",
-      "Timber and metal pairing",
+      "Space-saving nesting mechanism",
+      "Initial sketches & form exploration",
+      "Wooden slatted top",
+      "Metal tube/rod structure",
+      "Exploded view & joinery",
       "Technical drawings",
-      "Material exploration"
+      "Material board & 3D renders"
     ],
     caseStudy: {
-      challenge:
-        "Modern urban apartments frequently suffer from restricted living footprints: accommodating impromptu guests often requires bulky spare chairs that clutter circulation paths or fragile folding chairs lacking tactile quality.",
-      concept:
-        "“Concealed Multiplicity” — a singular, sculpted coffee table that seamlessly conceals four fully supported, cushioned ottomans beneath its slatted perimeter without encroaching on surrounding floor area.",
-      process: [
-        "Anthropometric evaluation of seated knee clearances, coffee table reach, and ergonomic stool heights",
-        "Curvilinear tubular steel contouring to eliminate sharp collision hazards and mechanical pinch points",
-        "Tolerance prototyping for smooth friction-free docking and undocking of nested stools",
-        "Deflection stress calculations for slatted timber cantilever surfaces"
+      semester: "7th Semester, 2026",
+      location: "Furniture Design Studio",
+      conceptTitle: "Space-Saving Furniture",
+      conceptDescription:
+        "A centre table designed with four nesting stools that can be stored below the table and used as additional seating when required.",
+      problemBrief:
+        "Compact modern living rooms require adaptable furniture that does not permanently clutter floor area. The challenge was to design a multifunctional coffee table providing comfortable seating for up to four extra guests while retaining an uncluttered, elegant presence.",
+      researchSiteAnalysis: [
+        "Ergonomic analysis of average living room coffee table heights (420–460mm) and seated reach distances",
+        "Anthropometric clearance studies for knees, feet, and comfortable dining/casual stool heights (380–400mm)",
+        "Investigation of nesting tolerances to ensure effortless slide-in/slide-out movement without jamming",
+        "Analysis of structural strength required for metal tubes and slatted timber surfaces under dynamic load"
       ],
-      technicalSpecs: [
-        { label: "Table Dimensions", value: "900mm (L) × 900mm (W) × 450mm (H)" },
-        { label: "Stool Dimensions", value: "380mm (L) × 380mm (W) × 390mm (H)" },
-        { label: "Frame Material", value: "25mm Ø 16-gauge bent mild steel tubing" },
-        { label: "Weight Tolerance", value: "Tested for 140kg dynamic load per stool" }
+      designDevelopment: [
+        "Initial concept sketches exploring circular, rectangular, and square nested configurations",
+        "Form exploration balancing minimalist geometric lines with rounded human-safe corners",
+        "Development of tubular metal guide rails allowing stools to nest flush beneath the table apron",
+        "Selection of spaced wooden slats on the table top to introduce visual lightness and air circulation",
+        "Iterative 1:5 scale card and wire prototypes to test clearance and structural rigidity"
       ],
-      materials: [
-        "FSC-certified solid Teakwood slats finished with natural hardwax oil",
-        "Seamless cold-rolled mild steel tubing with matte textured powder coat",
-        "High-density foam (32D) upholstery in stain-resistant textured tweed",
-        "Self-leveling nylon glide feet for smooth floor protection"
-      ],
-      drawings: [
+      technicalDrawings: [
         {
-          title: "Exploded Axonometric Assembly",
+          title: "Orthographic Projections (Plan, Front & Side Elevations)",
           description:
-            "Complete breakdown of slat fastening, tubular cross-bracing, and recessed stool alignment guides."
+            "Dimensioned technical views showing table overall envelope (900 × 900 × 450 mm) and stool envelopes."
         },
         {
-          title: "Orthographic 3-View Projections",
+          title: "Exploded View & Joinery Assembly",
           description:
-            "Fully dimensioned plan, front, and side elevations with precise bend radii callouts."
+            "Technical exploded diagram detailing countersunk screw placements, tubular welding junctions, and slat fixings."
         },
         {
-          title: "Joinery & Fastener Callouts",
+          title: "Stool Nesting & Clearance Detail",
           description:
-            "Concealed countersunk machine screws and precision TIG-welded structural frame fillets."
+            "Sectional drawing illustrating the sliding clearance and recessed alignment mechanism underneath the table top."
         }
       ],
+      materialsFinishes: [
+        "Natural grain solid wood slats finished with protective clear matte sealer",
+        "Hollow circular mild steel tubing with powder-coated matte textured finish",
+        "High-density cushioned upholstery on stools for ergonomic seated comfort",
+        "Nylon floor glide inserts to prevent scratching during movement"
+      ],
+      finalOutcome:
+        "A resolved furniture design presentation showcasing freehand ideation sketches, 3D orthographic views, an exploded assembly diagram, a material board, and realistic 3D renderings.",
+      learningOutcomes: [
+        "Mastering space-saving mechanical tolerances and nesting kinematics in furniture design",
+        "Preparing standard orthographic, sectional, and exploded technical drawings suitable for fabrication",
+        "Balancing the visual pairing of warm timber slats with industrial tubular metal frames"
+      ],
       keyHighlights: [
-        "Zero spatial footprint penalty: stores 4 guest seats inside a 0.81m² coffee table volume",
-        "Acoustic dampening provided by textile upholstery within the nested chamber",
-        "Rigid torsional stability achieved through unified tubular steel geometry"
+        "Accommodates 4 additional guests with zero permanent floor footprint expansion",
+        "Sturdy bent tubular steel construction providing high torsional rigidity",
+        "Clean slatted aesthetic complementing both contemporary and minimalist interiors"
       ]
     }
   },
@@ -170,65 +199,79 @@ export const PROJECTS: Project[] = [
     number: "03",
     title: "Tide & Terra",
     category: "Spatial",
-    type: "Rooftop hospitality",
+    type: "Hospitality / Rooftop Café",
     place: "Kothrud, Pune",
-    year: "6th semester · 2026",
+    year: "6th Semester, 2026",
     image: "/images/tide-terra.webp",
-    imageAlt: "Tide and Terra rooftop hospitality design rendering",
+    imageAlt: "Tide & Terra rooftop hospitality design rendering and spatial presentation board",
     summary:
-      "A rooftop café concept that brings together the enclosure of a cave and the openness of the sky.",
+      "A rooftop dining experience inspired by the meeting of ocean and earth, exploring a cave-like environment, privacy, fluid movement and an open, calm rooftop experience.",
     detail:
       "The hospitality concept uses the meeting of ocean and earth as its design inspiration. It explores privacy, fluid movement, curved forms, open-air dining and a calm, luxurious rooftop atmosphere, supported by site study, moodboards, layouts and 3D views.",
     focus: [
-      "Hospitality experience",
-      "Cave-inspired forms",
-      "Open-air seating",
-      "Site and circulation study"
+      "Blend of cave and sky concept",
+      "Site study in Kothrud, Pune",
+      "Concept development & moodboard",
+      "Colour palette & material board",
+      "Spatial planning & seating zones",
+      "Form exploration & fluid circulation",
+      "Floor plans, sections & 3D visualisations"
     ],
     caseStudy: {
-      challenge:
-        "Transforming an exposed, windswept rooftop in dense urban Kothrud, Pune into an all-weather destination café that balances intimate acoustic seclusion with expansive, panoramic sunset views.",
-      concept:
-        "“Coast Meets Cavern” — an architectural dialogue between grounding, monolithic sculpted earth caves (intimate dining alcoves) and open-air timber sky decks beneath the Pune canopy.",
-      process: [
-        "Rooftop microclimate survey analyzing prevailing southwest monsoons and intense afternoon thermal loads",
-        "Circulation choreography separating fast bar service paths from contemplative, private booth clusters",
-        "Sculptural ferrocement model studies exploring organic, flowing curvatures",
-        "Biophilic acoustic buffer design employing dense native planter screens to temper city traffic noise"
+      semester: "6th Semester, 2026",
+      location: "Kothrud, Pune",
+      conceptTitle: "Blend of Cave and Sky",
+      conceptDescription:
+        "A rooftop dining experience inspired by the meeting of ocean and earth. The concept explores a cave-like environment, privacy, fluid movement and an open, calm rooftop experience.",
+      problemBrief:
+        "The project required designing an experiential rooftop café in suburban Kothrud, Pune. The site demanded protection from intense sun and seasonal winds while celebrating elevated open-sky views, creating distinct sensory zones for private intimate conversations as well as social gathering.",
+      researchSiteAnalysis: [
+        "Site study of Kothrud rooftop context: panoramic views, surrounding building heights, and urban noise sources",
+        "Wind and weather patterns during Pune’s monsoon and dry summer seasons",
+        "Hospitality circulation mapping: customer arrival paths, kitchen service routes, and bar accessibility",
+        "User sensory research on acoustic privacy, comfortable seating ergonomics, and atmospheric lighting"
       ],
-      technicalSpecs: [
-        { label: "Built-up Rooftop Area", value: "3,800 sq.ft. (353 m²)" },
-        { label: "Seating Capacity", value: "84 covers (48 cave alcoves, 36 sky deck)" },
-        { label: "Acoustic Attenuation", value: "-12dB ambient street sound reduction" },
-        { label: "Lighting Scheme", value: "2200K warm circadian indirect LED coves" }
+      designDevelopment: [
+        "Concept development combining the protective mass of subterranean caves (terra) with the buoyant openness of tides and sky",
+        "Curvilinear spatial planning establishing organic fluid seating alcoves without rigid partition walls",
+        "Curated moodboard and earthy color palette: warm sand tones, deep terracotta, muted sage, and aged brass",
+        "Zoning exploration dividing the rooftop into an enclosed atmospheric cave lounge, an open sky deck, and a central cocktail bar",
+        "Lighting studies using indirect cove lighting and soft pendant fixtures to enhance the sculptural cave contours"
       ],
-      materials: [
-        "Sculptural ferrocement shells finished with textured earth-toned lime plaster",
-        "Weathered teak decking planks on elevated aluminum sub-frames",
-        "Aged brushed brass architectural hardware and brass-mesh pendant luminaires",
-        "Woven natural rattan dining chairs with weather-resistant outdoor textiles"
-      ],
-      drawings: [
+      technicalDrawings: [
         {
-          title: "Overall Layout & Table Spacing Plan",
+          title: "Comprehensive Rooftop Floor Plan",
           description:
-            "Fluid organic circulation routes ensuring clear waiter pathways and privacy for every table."
+            "Dimensioned architectural plan illustrating entrance vestibule, cave booths, sky deck tables, bar counter, and service back-of-house."
         },
         {
-          title: "Longitudinal Spatial Section",
+          title: "Longitudinal & Transverse Sections",
           description:
-            "Sectional transition from enclosed cavern bar to tiered open-air timber sky deck."
+            "Sectional views highlighting the ceiling height variation from intimate sculpted cave arches to lofty open-air pergolas."
         },
         {
-          title: "Ferrocement Cave Structural Detail",
+          title: "Architectural Elevations & Wall Details",
           description:
-            "Reinforcement mesh wireframe, spray mortar layer, and concealed cove lighting trench."
+            "Front and lateral elevations displaying textured plaster wall finishes, planter integration, and railing designs."
         }
       ],
+      materialsFinishes: [
+        "Textured earth-toned lime plaster (chuna) finish forming sculptural cave walls",
+        "Weatherproof treated timber decking for open-air sky terrace seating",
+        "Brushed brass accents on lighting fixtures, footrails, and joinery details",
+        "Outdoor woven natural rattan and linen upholstery in ocean and clay tones"
+      ],
+      finalOutcome:
+        "A complete hospitality portfolio case study comprising contextual site analysis, concept moodboards, dimensioned plans and sections, material swatches, and immersive 3D renderings.",
+      learningOutcomes: [
+        "Translating poetic conceptual metaphors into functional commercial hospitality layouts",
+        "Developing fluid, organic spatial boundaries that ensure operational efficiency for service staff",
+        "Balancing daylight, acoustic buffers, and evening ambient lighting in rooftop environments"
+      ],
       keyHighlights: [
-        "Organic spatial zoning enabling seamless transitions from daytime brunch to evening lounge",
-        "Integrated biophilic sound barrier insulating guests from surrounding city buzz",
-        "Distinctive sculptural forms creating iconic photographic focal points"
+        "Dual ambiance: cocooned cave alcoves contrasting with open panoramic sky decks",
+        "Biophilic planter integration acting as acoustic and privacy screens",
+        "Sculptural curvilinear architecture creating high visual appeal and memorable user experiences"
       ]
     }
   },
@@ -236,65 +279,79 @@ export const PROJECTS: Project[] = [
     number: "04",
     title: "Universal Toilet",
     category: "Spatial",
-    type: "Institutional · accessibility",
-    place: "Banasthali Vidyapith, Jaipur",
-    year: "6th semester · 2026",
+    type: "Institutional Design",
+    place: "Banasthali Vidyapith, Jaipur, Rajasthan",
+    year: "6th Semester, 2026",
     image: "/images/universal-toilet.webp",
-    imageAlt: "Universal Toilet institutional design drawing and presentation",
+    imageAlt: "Universal Toilet institutional design drawing and technical presentation board",
     summary:
-      "An institutional toilet-design exercise focused on making an existing facility more accessible and functional.",
+      "An accessible toilet-design project responding to an existing institutional facility, making everyday use clearer and more comfortable.",
     detail:
-      "The project studies an existing campus facility and develops a more considered toilet layout. The source portfolio includes existing-site references, a material board and dimensioned design drawings. The intent is to make everyday use clearer and more comfortable for a wider range of users.",
+      "The project studies an existing campus facility at Banasthali Vidyapith and develops a more considered, accessible toilet layout. The presentation includes existing-site references, a material board, and dimensioned technical design drawings.",
     focus: [
-      "Existing-site response",
-      "Accessible use",
-      "Fixture and circulation planning",
-      "Material selection"
+      "Design for existing site response",
+      "User accessibility requirements",
+      "Fixture positioning & ergonomics",
+      "Space planning & turning radiuses",
+      "Circulation & barrier-free access",
+      "Material selection & hygiene",
+      "Technical drawings & layouts"
     ],
     caseStudy: {
-      challenge:
-        "Outdated campus institutional sanitation facilities frequently impose physical barriers for persons with disabilities: narrow door swings, slippery flooring, inaccessible fixture heights, and lack of intuitive tactile guidance.",
-      concept:
-        "“Universal Independence” — redefining public campus restrooms into an inclusive, barrier-free sanctuary that preserves personal autonomy, hygiene, and dignity for users of all physical abilities.",
-      process: [
-        "Dimensional audit and user pain-point survey of existing university restroom facilities",
-        "Anthropometric evaluation of wheelchair turning circles, walking frame clearances, and transfer arcs",
-        "Functional zoning establishing touch-free hygiene stations, clear wet/dry boundaries, and universal iconography",
-        "Hygienic material testing prioritizing bacteriostatic, non-porous, and slip-resistant surfaces"
+      semester: "6th Semester, 2026",
+      location: "Banasthali Vidyapith, Jaipur, Rajasthan",
+      conceptTitle: "Design for Existing Site",
+      conceptDescription:
+        "An accessible toilet-design project responding to an existing institutional facility.",
+      problemBrief:
+        "The project addressed an existing campus restroom facility that suffered from tight clearances, awkward door swings, non-standard fixture heights, slippery surfaces, and lack of accommodation for individuals with mobility challenges. The brief was to reconfigure the facility within its existing structural boundary for maximum accessibility, hygiene, and ease of maintenance.",
+      researchSiteAnalysis: [
+        "Photographic documentation and physical measurement of the existing campus toilet facility",
+        "Identification of user accessibility pain points: door thresholds, narrow passageways, and lack of grab rails",
+        "Clearance analysis for wheelchair turning circles, walking frame users, and assisted transfers",
+        "Examination of natural lighting, ventilation, drainage slopes, and plumbing risers in the existing structure"
       ],
-      technicalSpecs: [
-        { label: "Facility Area", value: "42 m² institutional redesign" },
-        { label: "Turning Radius", value: "1,550mm unobstructed continuous diameter" },
-        { label: "Door Clear Width", value: "950mm with automated low-energy swing operator" },
-        { label: "Floor Slip Rating", value: "R11 anti-slip rating wet and dry" }
+      designDevelopment: [
+        "Reorganization of interior fixtures into intuitive wet and dry zones",
+        "Removal of threshold obstacles to create a flush, continuous zero-barrier floor level",
+        "Ergonomic positioning of dual-height washbasins, grab bars, lever faucets, and accessible dispensers",
+        "Space planning accommodating a 1500mm continuous turning circle inside the accessible cubicle",
+        "Selection of non-porous, slip-resistant, easily washable floor and wall materials"
       ],
-      materials: [
-        "Monolithic anti-slip terrazzo with continuous coved skirtings for effortless maintenance",
-        "Grade 304 satin brushed stainless steel continuous grab rails with knurled grip",
-        "Solid phenolic compact laminate partitions resistant to moisture, bacteria, and wear",
-        "High-contrast tactile warning indicators and directional studs at transition thresholds"
-      ],
-      drawings: [
+      technicalDrawings: [
         {
-          title: "Universal Accessibility Layout",
+          title: "Existing vs Proposed Comparative Floor Plan",
           description:
-            "Full ADA/CPWD compliant plan detailing transfer angles, sensor placements, and clearances."
+            "Side-by-side architectural plan showing existing layout deficiencies and the optimized accessible configuration."
         },
         {
-          title: "Wall Fixture Elevation & Mounting Heights",
+          title: "Detailed Dimensioned Layout Plan",
           description:
-            "Precise ergonomic mounting heights for grab bars, dual-height washbasins, and dispensers."
+            "Complete dimensioned plan with clearance radiuses, door swing directions, and plumbing fixture locations."
         },
         {
-          title: "Tactile Wayfinding & Lighting Plan",
+          title: "Internal Wall Elevations & Mounting Heights",
           description:
-            "Color-contrasted perimeter floor bands and high-CRI shadow-free mirror task lighting."
+            "Dimensioned elevations indicating exact installation heights for support grab bars, mirrors, and dispensers."
         }
       ],
+      materialsFinishes: [
+        "Anti-slip matte ceramic floor tiles with high wet-traction rating",
+        "Glazed wall tiles facilitating rapid daily institutional sanitization",
+        "Corrosion-resistant stainless steel (Grade 304) grab rails with textured knurled grip",
+        "Durable phenolic laminate partition doors with emergency release latch hardware"
+      ],
+      finalOutcome:
+        "A rigorous institutional redesign proposal documented through site photographs, existing vs proposed comparisons, detailed architectural technical drawings, and a clean material board.",
+      learningOutcomes: [
+        "Applying universal design principles directly to institutional sanitation spaces",
+        "Designing functional retrofits within strict existing architectural and structural footprints",
+        "Specifying appropriate durable, slip-resistant, and low-maintenance institutional materials"
+      ],
       keyHighlights: [
-        "Zero-threshold flush entry eliminating tripping and wheel catch hazards",
-        "Dual-height cantilevered vanities catering equally to wheelchair users and standing occupants",
-        "Fully touchless fixtures reducing cross-contamination risks by over 80%"
+        "Zero-threshold floor transition facilitating smooth barrier-free entry",
+        "Ergonomic continuous support bars for independent and dignified user assistance",
+        "Intuitive circulation separating handwashing zones from toilet cubicles"
       ]
     }
   },
@@ -302,65 +359,79 @@ export const PROJECTS: Project[] = [
     number: "05",
     title: "Shulabh",
     category: "Spatial",
-    type: "Residential",
+    type: "Residential Design",
     place: "Ahmedabad, Gujarat",
-    year: "5th semester · 2025",
+    year: "5th Semester, 2025",
     image: "/images/shulabh.webp",
-    imageAlt: "Shulabh residential project plan and interior design board",
+    imageAlt: "Shulabh residential design plan and interior presentation board",
     summary:
       "A residential concept built around simplicity, thermal comfort and thoughtful everyday living.",
     detail:
-      "The project explores passive cooling, thermal comfort, sustainability, spatial efficiency and human well-being. The portfolio presents furniture and floor layouts, elevations, interior details and a warm material direction.",
+      "The project explores passive cooling, thermal comfort, sustainability, spatial efficiency and human well-being in Ahmedabad’s hot climate. The portfolio presents furniture and floor layouts, elevations, interior details and a warm material direction.",
     focus: [
-      "Passive cooling",
-      "Thermal comfort",
-      "Spatial efficiency",
-      "Material and furniture planning"
+      "The Art of Simple Living concept",
+      "Passive cooling strategies",
+      "Thermal comfort & ventilation",
+      "Sustainable living & simplicity",
+      "Spatial efficiency & human well-being",
+      "Moodboard & material palette",
+      "Furniture layout, plans & elevations"
     ],
     caseStudy: {
-      challenge:
-        "Ahmedabad’s extreme dry-heat climate demands heavy air conditioning reliance, causing skyrocketing household energy consumption and isolating residents from natural airflow and vernacular community living patterns.",
-      concept:
-        "“Shulabh (Effortless Flow)” — a contemporary urban residence organized around a central microclimate courtyard, employing passive thermal cooling principles rooted in traditional Gujarati havelis.",
-      process: [
-        "Climatic study of Ahmedabad seasonal wind patterns and diurnal temperature swings",
-        "Courtyard massing simulations creating self-shading envelopes during peak solar exposure (12 PM – 3 PM)",
-        "Spatial zoning placing private bedrooms on shaded eastern wings and service zones as western heat buffers",
-        "Interior furniture detailing emphasizing low-slung, breathable arrangements that encourage floor sitting and natural air currents"
+      semester: "5th Semester, 2025",
+      location: "Ahmedabad, Gujarat",
+      conceptTitle: "The Art of Simple Living",
+      conceptDescription:
+        "A residential concept built around simplicity, thermal comfort and thoughtful everyday living.",
+      problemBrief:
+        "Residential design in Ahmedabad’s hot-arid climate often relies heavily on artificial mechanical cooling, leading to high energy use and disconnected indoor environments. The brief was to design a functional, calm family home prioritizing natural thermal comfort, passive airflow, spatial efficiency, and timeless simplicity.",
+      researchSiteAnalysis: [
+        "Climatic analysis of Ahmedabad: intense dry summer heat, moderate winters, and directional seasonal winds",
+        "Study of traditional Gujarati architectural elements: courtyards, jali screens, and thick masonry walls",
+        "Analysis of domestic daily rhythms: family gathering, quiet rest, cooking, and natural light requirements",
+        "Evaluation of indoor air circulation paths to minimize solar heat buildup during daytime peak hours"
       ],
-      technicalSpecs: [
-        { label: "Built-up Area", value: "2,400 sq.ft. (G+1 residential structure)" },
-        { label: "Courtyard Core", value: "180 sq.ft. central open-to-sky light well" },
-        { label: "Passive Temp Reduction", value: "5°C – 7°C indoor differential achieved via thermal mass" },
-        { label: "Fenestration Shading", value: "Deep 600mm masonry overhangs with jaali screens" }
+      designDevelopment: [
+        "Central layout organization channeling air currents across living spaces toward shaded courtyards",
+        "Deep fenestration overhangs and louvers to prevent direct sun from hitting glass window surfaces",
+        "Space-efficient furniture layouts emphasizing open sightlines, uncluttered pathways, and flexible floor living",
+        "Curated material board highlighting vernacular, natural, and thermally responsive materials",
+        "Bespoke built-in wooden storage and seating to maximize usable floor area and maintain clean lines"
       ],
-      materials: [
-        "Mirror-polished green Kota stone flooring naturally cool under bare feet",
-        "Exposed clay brick masonry with lime mortar pointing for natural breathability",
-        "Locally crafted reclaimed teak millwork and natural woven rattan cane door inserts",
-        "Cast unlacquered brass hardware developing an organic living patina over time"
-      ],
-      drawings: [
+      technicalDrawings: [
         {
-          title: "Ground & First Floor Architectural Layouts",
+          title: "Comprehensive Residential Floor Plan",
           description:
-            "Seamless indoor-outdoor integration framing the central green court with living and dining spaces."
+            "Dimensioned layout detailing living room, courtyard, kitchen, dining area, bedrooms, and service zones."
         },
         {
-          title: "Passive Stack Cooling Section",
+          title: "Architectural Building Section",
           description:
-            "Illustration of low-level fresh air intake through shaded courts rising and exhausting through high louvers."
+            "Sectional drawing illustrating stack effect ventilation, high clerestory windows, and shaded patio transitions."
         },
         {
-          title: "Bespoke Joinery & Wardrobe Details",
+          title: "Interior Wall Elevations & Joinery Details",
           description:
-            "Louvered wardrobe shutters facilitating interior cross-ventilation even when closed."
+            "Elevations displaying custom living room wooden millwork, integrated window seating, and shelving."
         }
       ],
+      materialsFinishes: [
+        "Polished Kota stone flooring providing a cool natural surface underfoot",
+        "Natural lime-wash wall finish that breathes and reflects indirect daylight",
+        "Solid reclaimed teak wood for custom interior furniture and window louvers",
+        "Woven cotton khadi and linen fabrics in natural earthy tones for upholstery"
+      ],
+      finalOutcome:
+        "A holistic residential design presentation featuring architectural floor plans, cross-sections, interior elevations, custom furniture drawings, moodboards, and warm interior visualisations.",
+      learningOutcomes: [
+        "Integrating vernacular passive cooling principles into contemporary residential space planning",
+        "Developing space-efficient furniture layouts tailored to daily domestic routines and well-being",
+        "Selecting thermally responsive regional materials that age gracefully with minimal maintenance"
+      ],
       keyHighlights: [
-        "Thermal envelope design substantially minimizing annual cooling energy footprint",
-        "Central courtyard functioning as both social anchor and natural daylight funnel",
-        "Timeless Gujarati material palette celebrating craft, longevity, and tactile warmth"
+        "Passive thermal comfort strategies significantly reducing reliance on artificial cooling",
+        "Calm, clutter-free spatial planning enhancing visual harmony and everyday well-being",
+        "Rich tactile material palette honoring sustainable and local craft traditions"
       ]
     }
   },
@@ -368,65 +439,79 @@ export const PROJECTS: Project[] = [
     number: "06",
     title: "Dining Chair",
     category: "Furniture",
-    type: "Furniture design",
-    place: "Furniture design",
-    year: "5th semester · 2025",
+    type: "Furniture Design",
+    place: "Furniture Design Studio",
+    year: "5th Semester, 2025",
     image: "/images/dining-chair.webp",
-    imageAlt: "Dining Chair concept, sketches and design development board",
+    imageAlt: "Dining Chair concept sketches, prototypes and design development board",
     summary:
-      "A dining-chair exploration where organic curves express both support and openness.",
+      "A dining-chair exploration where organic curves express both support and openness, balancing ergonomic comfort with a sculptural presence.",
     detail:
-      "The concept, “Protection & openness”, is developed through initial sketches, form studies, prototypes, joinery exploration and technical drawings. The selected direction translates the curve of the body into a sculptural yet functional furniture piece.",
+      "The concept, “Protection & Openness”, is developed through initial sketches, ergonomic and posture exploration, form studies, prototypes, joinery exploration and technical drawings.",
     focus: [
-      "Ergonomic study",
-      "Sketch-to-form exploration",
-      "Prototype development",
-      "Wood and upholstery"
+      "Protection & Openness concept",
+      "Initial sketches & form exploration",
+      "Ergonomic & posture studies",
+      "3D model & prototype development",
+      "Joinery & construction studies",
+      "Material exploration (wood & upholstery)",
+      "Technical drawings & final visualisation"
     ],
     caseStudy: {
-      challenge:
-        "Modern dining spaces require chairs with visual lightness that don't dominate the room, yet dining chairs often sacrifice ergonomic thoracic and lumbar support during extended meals and social gatherings.",
-      concept:
-        "“Embrace & Release” — an organic, continuous curved backrest that gestures protective warmth and spinal alignment without visually blocking the dining room horizon.",
-      process: [
-        "Rapid physical form-finding through 1:5 wire, clay, and card scale models",
-        "Full-scale 1:1 cardboard mockups to test seated back-angle (102°) and lumbar transition curves",
-        "Traditional wood joinery studies investigating compound mortise-and-tenon strength",
-        "Selection of tactile, breathable fabric for extended sitting comfort"
+      semester: "5th Semester, 2025",
+      location: "Furniture Design Studio",
+      conceptTitle: "Protection & Openness",
+      conceptDescription:
+        "A dining-chair exploration where organic curves express both support and openness.",
+      problemBrief:
+        "Dining chairs often present a trade-off: rigid, formal chairs provide structure but feel unwelcoming, while deep lounge chairs are unsuited for dining postures. The challenge was to sculpt a chair whose backrest curves around the user to provide reassuring ergonomic support (protection) while remaining visually light and inviting (openness).",
+      researchSiteAnalysis: [
+        "Anthropometric analysis of dining ergonomics: optimal seat height (440–460mm), seat depth (420–450mm), and back angle (98°–102°)",
+        "Spinal posture exploration evaluating thoracic support during active dining vs relaxed post-meal conversation",
+        "Visual lightness study in open dining areas to prevent bulky silhouettes from dominating table horizons",
+        "Investigation of timber joinery techniques capable of handling multidirectional cantilever stresses"
       ],
-      technicalSpecs: [
-        { label: "Seat Height", value: "450mm (Universal dining standard)" },
-        { label: "Backrest Angle", value: "102° Ergonomic dining recline" },
-        { label: "Overall Dimensions", value: "540mm (W) × 520mm (D) × 780mm (H)" },
-        { label: "Weight", value: "5.8 kg lightweight solid timber build" }
+      designDevelopment: [
+        "Ideation sketches exploring organic curvilinear contours inspired by embracing forms and human gestures",
+        "Rapid form-finding using 1:5 scale clay and wire models to refine the three-dimensional backrest curve",
+        "Construction of a full-scale 1:1 physical prototype to test ergonomic comfort, stability, and thigh clearance",
+        "Joinery development detailing mortise-and-tenon connections between the curved back rail and rear legs",
+        "Refinement of digital 3D models and rendering of material finishes"
       ],
-      materials: [
-        "FSC-certified solid Ash wood sculpted with organic compound bevels",
-        "Hand-applied matte polyurethane with natural touch and UV stability",
-        "Woven oat-colored textured linen/wool bouclé blend upholstery",
-        "Dual-density high resilience ergonomic polyurethane core cushion"
-      ],
-      drawings: [
+      technicalDrawings: [
         {
-          title: "Compound Curve Orthographic Projections",
+          title: "Dimensioned Orthographic Projections",
           description:
-            "Complex radii callouts for CNC profiling and subsequent hand-finishing transitions."
+            "Plan, front, side, and rear elevations specifying radius curvature, leg splay angles, and seat dimensions."
         },
         {
-          title: "Joinery Explosion & Dowel Details",
+          title: "Joinery & Structural Assembly Detail",
           description:
-            "Reinforced mortise, tenon, and angled dowel joints engineered for high tensile stability."
+            "Detailed drawing showing mortise-and-tenon joints, corner bracing blocks, and seat frame fixings."
         },
         {
           title: "Upholstery Sub-Assembly Section",
           description:
-            "Concealed staple rebate, perimeter welting, and breathable bottom dust-cloth attachment."
+            "Cross-section showing foam density layering, plywood substrate base, and fabric stretching detail."
         }
       ],
+      materialsFinishes: [
+        "Solid natural hardwood (Ash/Teak) sculpted with smooth organic transitions",
+        "Protective hand-rubbed matte clear oil finish highlighting natural wood grain",
+        "High-resilience foam core seat cushion engineered for enduring comfort",
+        "Textured woven upholstery fabric in warm neutral tones for breathability"
+      ],
+      finalOutcome:
+        "A comprehensive furniture portfolio presentation detailing initial sketches, ergonomic studies, 1:1 prototype testing, joinery construction diagrams, and photorealistic 3D visualisations.",
+      learningOutcomes: [
+        "Translating anthropometric human body data into comfortable, sculpted furniture geometry",
+        "Hands-on full-scale prototyping to validate design assumptions and structural stability",
+        "Detailing woodworking joinery and upholstery assemblies for practical manufacturing"
+      ],
       keyHighlights: [
-        "Sculptural silhouette beautiful from every 360° approach in open-plan spaces",
-        "Contoured backrest delivering exceptional thoracic and lumbar comfort without bulk",
-        "Heritage craftsmanship combined with contemporary precision manufacturing"
+        "Organic continuous curved backrest delivering optimal lumbar and thoracic support",
+        "Balanced visual presence offering generous comfort without physical or visual bulk",
+        "Validated through physical 1:1 scale prototyping and rigorous joinery study"
       ]
     }
   }

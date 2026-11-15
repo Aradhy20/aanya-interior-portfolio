@@ -9,10 +9,13 @@ import {
   ChevronRight,
   Maximize2,
   Compass,
-  Layers,
+  Search,
   Ruler,
   Sparkles,
-  CheckCircle2
+  CheckCircle2,
+  MapPin,
+  Calendar,
+  Layers
 } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { SITE_CONFIG } from "@/data/site-config";
@@ -24,7 +27,7 @@ type Props = {
   onSelectProject: (p: Project) => void;
 };
 
-type TabKey = "overview" | "concept" | "drawings" | "materials";
+type TabKey = "overview" | "research" | "drawings" | "materials";
 
 export default function ProjectCaseStudyModal({
   project,
@@ -35,13 +38,11 @@ export default function ProjectCaseStudyModal({
   const [activeTab, setActiveTab] = useState<TabKey>("overview");
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  // Reset tab when project changes
   useEffect(() => {
     setActiveTab("overview");
     setLightboxOpen(false);
   }, [project?.number]);
 
-  // Find index for prev/next
   const currentIndex = project
     ? allProjects.findIndex((p) => p.number === project.number)
     : -1;
@@ -130,7 +131,7 @@ export default function ProjectCaseStudyModal({
             </div>
 
             <div className="modal-index-pill">
-              <span>{project.number} OF 06</span>
+              <span>PROJECT {project.number} OF 06</span>
               <span className="dot-sep">·</span>
               <span>{project.category}</span>
             </div>
@@ -158,25 +159,30 @@ export default function ProjectCaseStudyModal({
                 className="case-study-zoom-btn"
                 onClick={() => setLightboxOpen(true)}
                 aria-label="Enlarge presentation board"
-                title="Click to view full size"
+                title="Click to view high-resolution presentation board"
               >
                 <Maximize2 size={15} />
-                <span>Expand drawing</span>
+                <span>Enlarge presentation board</span>
               </button>
               <div className="case-study-hero-badge">
-                <span>{project.year}</span>
+                <Calendar size={13} />
+                <span>{caseStudy.semester}</span>
                 <span className="dot-sep">·</span>
-                <span>{project.place}</span>
+                <MapPin size={13} />
+                <span>{caseStudy.location}</span>
               </div>
             </div>
           </div>
 
-          {/* Project Title & Subtitle */}
+          {/* Project Title & Context Bar */}
           <div className="case-study-heading">
             <div className="case-study-type">{project.type}</div>
             <h2 id="modal-project-title" className="case-study-title">
               {project.title}
             </h2>
+            <div className="case-concept-subtitle">
+              <span>Concept:</span> <em>{caseStudy.conceptTitle}</em>
+            </div>
             <p className="case-study-summary">{project.summary}</p>
           </div>
 
@@ -190,17 +196,17 @@ export default function ProjectCaseStudyModal({
               onClick={() => setActiveTab("overview")}
             >
               <Compass size={13} />
-              <span>Overview</span>
+              <span>1. Overview & Concept</span>
             </button>
             <button
               type="button"
               role="tab"
-              aria-selected={activeTab === "concept"}
-              className={`case-tab ${activeTab === "concept" ? "active" : ""}`}
-              onClick={() => setActiveTab("concept")}
+              aria-selected={activeTab === "research"}
+              className={`case-tab ${activeTab === "research" ? "active" : ""}`}
+              onClick={() => setActiveTab("research")}
             >
-              <Layers size={13} />
-              <span>Concept & Process</span>
+              <Search size={13} />
+              <span>2. Research & Site Analysis</span>
             </button>
             <button
               type="button"
@@ -210,7 +216,7 @@ export default function ProjectCaseStudyModal({
               onClick={() => setActiveTab("drawings")}
             >
               <Ruler size={13} />
-              <span>Technical Drawings</span>
+              <span>3. Planning & Drawings</span>
             </button>
             <button
               type="button"
@@ -220,7 +226,7 @@ export default function ProjectCaseStudyModal({
               onClick={() => setActiveTab("materials")}
             >
               <Sparkles size={13} />
-              <span>Materials & Outcomes</span>
+              <span>4. Materials & Outcomes</span>
             </button>
           </div>
 
@@ -234,8 +240,19 @@ export default function ProjectCaseStudyModal({
                 transition={{ duration: 0.2 }}
                 className="tab-panel"
               >
+                <div className="case-block concept-highlight">
+                  <div className="case-badge-label">Design Concept & Philosophy</div>
+                  <h4 className="case-concept-heading">{caseStudy.conceptTitle}</h4>
+                  <p className="case-block-body concept-text">{caseStudy.conceptDescription}</p>
+                </div>
+
+                <div className="case-block">
+                  <div className="case-badge-label">Design Problem & Brief</div>
+                  <p className="case-block-body">{caseStudy.problemBrief}</p>
+                </div>
+
                 <div className="case-narrative">
-                  <h4>Project Narrative</h4>
+                  <h4>Detailed Project Narrative</h4>
                   <p>{project.detail}</p>
                 </div>
 
@@ -251,13 +268,13 @@ export default function ProjectCaseStudyModal({
                   </div>
                 </div>
 
-                <div className="case-specs-preview">
-                  <div className="case-section-title">Key Parameters</div>
-                  <div className="specs-grid">
-                    {caseStudy.technicalSpecs.map((spec) => (
-                      <div key={spec.label} className="spec-card">
-                        <span className="spec-label">{spec.label}</span>
-                        <span className="spec-value">{spec.value}</span>
+                <div className="case-section-box">
+                  <div className="case-section-title">Key Innovations & Distinctions</div>
+                  <div className="highlights-list">
+                    {caseStudy.keyHighlights.map((highlight) => (
+                      <div key={highlight} className="highlight-item">
+                        <CheckCircle2 size={15} className="highlight-icon" />
+                        <span>{highlight}</span>
                       </div>
                     ))}
                   </div>
@@ -265,38 +282,42 @@ export default function ProjectCaseStudyModal({
               </motion.div>
             )}
 
-            {activeTab === "concept" && (
+            {activeTab === "research" && (
               <motion.div
-                key="tab-concept"
+                key="tab-research"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2 }}
                 className="tab-panel"
               >
-                <div className="case-block">
-                  <div className="case-badge-label">The Challenge</div>
-                  <p className="case-block-body">{caseStudy.challenge}</p>
-                </div>
-
-                <div className="case-block concept-highlight">
-                  <div className="case-badge-label">Design Concept</div>
-                  <p className="case-block-body concept-text">{caseStudy.concept}</p>
-                </div>
-
-                <div className="case-process-section">
-                  <div className="case-section-title">Design Process & Methodology</div>
-                  <div className="process-timeline">
-                    {caseStudy.process.map((step, idx) => (
-                      <div key={step} className="timeline-item">
-                        <span className="timeline-number">
-                          {String(idx + 1).padStart(2, "0")}
-                        </span>
-                        <div className="timeline-content">
-                          <p>{step}</p>
-                        </div>
+                <div className="case-section-title">Research, Context & Site Analysis</div>
+                <div className="process-timeline">
+                  {caseStudy.researchSiteAnalysis.map((item, idx) => (
+                    <div key={item} className="timeline-item">
+                      <span className="timeline-number">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <div className="timeline-content">
+                        <p>{item}</p>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="case-section-title" style={{ marginTop: "24px" }}>
+                  Design Development & Form Exploration
+                </div>
+                <div className="process-timeline">
+                  {caseStudy.designDevelopment.map((step, idx) => (
+                    <div key={step} className="timeline-item development-step">
+                      <span className="timeline-number dev-num">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <div className="timeline-content">
+                        <p>{step}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             )}
@@ -309,12 +330,12 @@ export default function ProjectCaseStudyModal({
                 transition={{ duration: 0.2 }}
                 className="tab-panel"
               >
-                <div className="case-section-title">Technical Documentation & Drawings</div>
+                <div className="case-section-title">Planning & Technical Drawings</div>
                 <div className="drawings-list">
-                  {caseStudy.drawings.map((drawing) => (
+                  {caseStudy.technicalDrawings.map((drawing) => (
                     <div key={drawing.title} className="drawing-card">
                       <div className="drawing-header">
-                        <Ruler size={14} className="drawing-icon" />
+                        <Ruler size={15} className="drawing-icon" />
                         <h5>{drawing.title}</h5>
                       </div>
                       <p>{drawing.description}</p>
@@ -322,16 +343,23 @@ export default function ProjectCaseStudyModal({
                   ))}
                 </div>
 
-                <div className="case-section-title" style={{ marginTop: "24px" }}>
-                  Engineering & Dimensional Specifications
-                </div>
-                <div className="specs-table">
-                  {caseStudy.technicalSpecs.map((spec) => (
-                    <div key={spec.label} className="specs-row">
-                      <span className="spec-k">{spec.label}</span>
-                      <span className="spec-v">{spec.value}</span>
-                    </div>
-                  ))}
+                <div className="case-notice-card">
+                  <Layers size={16} className="notice-icon" />
+                  <div>
+                    <strong>View original full-scale presentation boards</strong>
+                    <p>
+                      The technical drawings, orthographic projections, and dimensioned
+                      layouts are documented in Aanya’s original portfolio flipbook.
+                    </p>
+                  </div>
+                  <a
+                    href={SITE_CONFIG.portfolioBookUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="button button-dark notice-btn"
+                  >
+                    Open Flipbook <ArrowUpRight size={13} />
+                  </a>
                 </div>
               </motion.div>
             )}
@@ -344,9 +372,9 @@ export default function ProjectCaseStudyModal({
                 transition={{ duration: 0.2 }}
                 className="tab-panel"
               >
-                <div className="case-section-title">Material & Tactile Palette</div>
+                <div className="case-section-title">Materials & Finishes Palette</div>
                 <div className="materials-grid">
-                  {caseStudy.materials.map((mat) => (
+                  {caseStudy.materialsFinishes.map((mat) => (
                     <div key={mat} className="material-card">
                       <span className="material-swatch-dot" />
                       <span className="material-name">{mat}</span>
@@ -354,14 +382,19 @@ export default function ProjectCaseStudyModal({
                   ))}
                 </div>
 
-                <div className="case-section-title" style={{ marginTop: "28px" }}>
-                  Key Outcomes & Innovations
+                <div className="case-block" style={{ marginTop: "24px" }}>
+                  <div className="case-badge-label">Final Design & Visualisations</div>
+                  <p className="case-block-body">{caseStudy.finalOutcome}</p>
+                </div>
+
+                <div className="case-section-title" style={{ marginTop: "24px" }}>
+                  Key Learning & Design Takeaways
                 </div>
                 <div className="highlights-list">
-                  {caseStudy.keyHighlights.map((highlight) => (
-                    <div key={highlight} className="highlight-item">
+                  {caseStudy.learningOutcomes.map((outcome) => (
+                    <div key={outcome} className="highlight-item learning-item">
                       <CheckCircle2 size={15} className="highlight-icon" />
-                      <span>{highlight}</span>
+                      <span>{outcome}</span>
                     </div>
                   ))}
                 </div>
@@ -429,8 +462,8 @@ export default function ProjectCaseStudyModal({
                 className="lightbox-img"
               />
               <div className="lightbox-caption">
-                <strong>{project.number} · {project.title}</strong>
-                <span>{project.type} · {project.place}</span>
+                <strong>PROJECT {project.number} · {project.title}</strong>
+                <span>{project.type} · {caseStudy.location} ({caseStudy.semester})</span>
               </div>
             </div>
           </motion.div>

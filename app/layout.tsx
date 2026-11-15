@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { SITE_CONFIG } from "@/data/site-config";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -18,33 +19,38 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Aanya Jain — Industrial Designer & Spatial Practitioner",
+  title: "Aanya Jain — Interior & Industrial Design Student",
   description:
-    "Portfolio of Aanya Jain: thoughtful spatial design, ergonomic furniture, sustainable architecture, and human-centred everyday experiences. Banasthali Vidyapith Bachelor of Design.",
+    "Portfolio of Aanya Jain: 7th-semester Industrial Design student at Banasthali Vidyapith exploring sustainable, ergonomic, and smart interior design solutions, furniture, and spatial experiences.",
   keywords: [
     "Aanya Jain",
-    "Industrial Design",
+    "Interior Design Student",
+    "Industrial Design Student",
+    "Banasthali Vidyapith",
+    "Banasthali Vidyapeeth",
     "Spatial Design",
     "Furniture Design",
-    "Interior Architecture",
-    "Banasthali Vidyapith",
     "Ergonomic Furniture",
-    "Sustainable Architecture",
+    "Sustainable Interior Design",
     "Modular Shelter",
-    "Design Portfolio"
+    "Rayon",
+    "AutoCAD",
+    "SketchUp",
+    "3ds Max",
+    "Agra Interior Designer"
   ],
-  authors: [{ name: "Aanya Jain", url: "https://aanya-interior-portfolio.vercel.app" }],
-  creator: "Aanya Jain",
-  metadataBase: new URL("https://aanya-interior-portfolio.vercel.app"),
+  authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.siteUrl }],
+  creator: SITE_CONFIG.name,
+  metadataBase: new URL(SITE_CONFIG.siteUrl),
   alternates: {
     canonical: "/"
   },
   openGraph: {
-    title: "Aanya Jain — Industrial Designer & Spatial Practitioner",
+    title: "Aanya Jain — Interior & Industrial Design Student",
     description:
-      "Thoughtful spaces. Meaningful living. Explore selected industrial design, spatial architecture, and furniture projects by Aanya Jain.",
-    url: "https://aanya-interior-portfolio.vercel.app",
-    siteName: "Aanya Jain Portfolio",
+      "A 7th-semester Industrial Design student passionate about sustainable, ergonomic, and smart interior design solutions. Explore selected design projects.",
+    url: SITE_CONFIG.siteUrl,
+    siteName: "Aanya Jain Design Portfolio",
     locale: "en_US",
     type: "website",
     images: [
@@ -52,15 +58,15 @@ export const metadata: Metadata = {
         url: "/images/aanya-portrait.webp",
         width: 1200,
         height: 630,
-        alt: "Aanya Jain — Industrial Designer"
+        alt: "Aanya Jain — Interior and Industrial Design Student"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aanya Jain — Industrial Designer & Spatial Practitioner",
+    title: "Aanya Jain — Interior & Industrial Design Student",
     description:
-      "Thoughtful spaces. Meaningful living. Selected industrial and furniture design projects.",
+      "Thoughtful spaces. Meaningful living. Selected industrial and interior design projects.",
     images: ["/images/aanya-portrait.webp"]
   },
   robots: {
@@ -82,26 +88,34 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": "https://aanya-interior-portfolio.vercel.app/#person",
-      name: "Aanya Jain",
-      jobTitle: "Industrial Designer",
-      url: "https://aanya-interior-portfolio.vercel.app",
+      name: SITE_CONFIG.name,
+      jobTitle: SITE_CONFIG.role,
+      url: SITE_CONFIG.siteUrl,
       image: "https://aanya-interior-portfolio.vercel.app/images/aanya-portrait.webp",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Agra",
+        addressRegion: "Uttar Pradesh",
+        postalCode: SITE_CONFIG.postalCode,
+        addressCountry: "IN"
+      },
       alumniOf: {
         "@type": "EducationalOrganization",
-        name: "Banasthali Vidyapith"
+        name: SITE_CONFIG.university
       },
       sameAs: [
-        "https://www.instagram.com/jainj_enny/",
-        "https://www.youtube.com/@aanyajain234",
-        "https://heyzine.com/flip-book/4908923594.html"
+        SITE_CONFIG.youtubeUrl,
+        SITE_CONFIG.instagramUrl,
+        SITE_CONFIG.portfolioBookUrl
       ]
     },
     {
       "@type": "WebSite",
       "@id": "https://aanya-interior-portfolio.vercel.app/#website",
-      url: "https://aanya-interior-portfolio.vercel.app",
-      name: "Aanya Jain Portfolio",
-      description: "Portfolio of industrial and spatial design by Aanya Jain.",
+      url: SITE_CONFIG.siteUrl,
+      name: "Aanya Jain Design Portfolio",
+      description:
+        "Portfolio of interior and industrial design projects by Aanya Jain, Bachelor of Design student at Banasthali Vidyapith.",
       publisher: {
         "@id": "https://aanya-interior-portfolio.vercel.app/#person"
       }
@@ -115,6 +129,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
       <head>
+        <link rel="icon" href="/images/portfolio-qr.svg" type="image/svg+xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

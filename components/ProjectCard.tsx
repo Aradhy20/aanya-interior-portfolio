@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin, Calendar } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 type Props = {
@@ -39,12 +39,20 @@ export default function ProjectCard({ project, onSelect }: Props) {
       <div className="project-meta">
         <span className="meta-type">{project.type}</span>
         <span className="meta-dot">·</span>
-        <span className="meta-year">{project.year}</span>
+        <span className="meta-item">
+          <Calendar size={11} className="inline-icon" /> {project.year}
+        </span>
       </div>
 
       <div className="project-title-row">
         <h3>{project.title}</h3>
-        <span className="project-place">{project.place}</span>
+        <span className="project-place">
+          <MapPin size={11} className="inline-icon" /> {project.place}
+        </span>
+      </div>
+
+      <div className="card-concept-subtitle">
+        <span>Concept:</span> <em>{project.caseStudy.conceptTitle}</em>
       </div>
 
       <p className="project-summary">{project.summary}</p>
@@ -61,7 +69,7 @@ export default function ProjectCard({ project, onSelect }: Props) {
           )}
         </div>
         <span className="card-cta">
-          Case study <ArrowUpRight size={13} />
+          View case study <ArrowUpRight size={13} />
         </span>
       </div>
     </motion.button>
