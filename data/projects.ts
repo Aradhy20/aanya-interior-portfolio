@@ -205,7 +205,8 @@ export const PROJECTS: Project[] = [
     place: "Kothrud, Pune",
     year: "6th Semester, 2026",
     image: "/images/tide-terra.webp",
-    imageAlt: "Tide & Terra rooftop hospitality design rendering and spatial presentation board",
+    imageAlt:
+      "Tide & Terra rooftop hospitality design 3D visualization featuring sunken ocean-blue lounge seating, travertine columns, timber decks, and panoramic sunset city horizon in Kothrud, Pune",
     summary:
       "A rooftop dining experience inspired by the meeting of ocean and earth, exploring a cave-like environment, privacy, fluid movement and an open, calm rooftop experience.",
     detail:
