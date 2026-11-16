@@ -123,7 +123,8 @@ export const PROJECTS: Project[] = [
     place: "Furniture Design Studio",
     year: "7th Semester, 2026",
     image: "/images/centre-table.webp",
-    imageAlt: "Centre Table furniture concept, exploded view and technical presentation board",
+    imageAlt:
+      "Modern centre table with slatted wooden top, tubular metal cantilever base, and pull-out nesting stools in an outdoor garden setting",
     summary:
       "A centre table designed with four nesting stools that can be stored below the table and used as additional seating when required.",
     detail:
