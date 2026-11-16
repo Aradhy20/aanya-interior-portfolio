@@ -42,7 +42,8 @@ export const PROJECTS: Project[] = [
     place: "Bagru, Rajasthan",
     year: "7th Semester, 2026",
     image: "/images/worker-module.webp",
-    imageAlt: "Worker’s Module project presentation board and modular shelter concept",
+    imageAlt:
+      "Worker’s Module architectural site analysis drawing illustrating climatic conditions, solar orientation, summer winds, setbacks, and module zoning on a 7-acre site in Bagru",
     summary:
       "A temporary modular structure designed for construction workers to rest, eat, sleep and use essential facilities during work.",
     detail:
