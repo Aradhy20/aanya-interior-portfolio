@@ -22,11 +22,12 @@ type Props = {
 
 const NAV_LINKS = [
   { href: "#about", label: "About & CV", number: "01" },
-  { href: "#work", label: "Selected Projects", number: "02" },
-  { href: "#skills", label: "Software & Capabilities", number: "03" },
-  { href: "#approach", label: "Design Approach", number: "04" },
-  { href: "#archive", label: "Portfolio Book & QR", number: "05" },
-  { href: "#contact", label: "Contact & Resume", number: "06" }
+  { href: "#academic-recognition", label: "Academic Recognition", number: "02" },
+  { href: "#work", label: "Selected Projects", number: "03" },
+  { href: "#skills", label: "Software & Capabilities", number: "04" },
+  { href: "#approach", label: "Design Approach", number: "05" },
+  { href: "#archive", label: "Portfolio Book & QR", number: "06" },
+  { href: "#contact", label: "Contact & Resume", number: "07" }
 ];
 
 export default function MobileMenuDrawer({ isOpen, onClose }: Props) {

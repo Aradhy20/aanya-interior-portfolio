@@ -18,7 +18,8 @@ import {
   Sparkles,
   QrCode,
   Languages,
-  CheckCircle2
+  CheckCircle2,
+  FileCheck2
 } from "lucide-react";
 import {
   PROJECTS,
@@ -40,6 +41,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ProjectCaseStudyModal from "@/components/ProjectCaseStudyModal";
 import MobileMenuDrawer from "@/components/MobileMenuDrawer";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
+import AcademicCertificateCard from "@/components/AcademicCertificateCard";
 
 const BOOK_URL = SITE_CONFIG.portfolioBookUrl;
 const RESUME_URL = SITE_CONFIG.resumeDownloadUrl;
@@ -82,6 +84,7 @@ export default function Home() {
 
           <nav className="main-nav" aria-label="Main navigation">
             <a href="#about">About & CV</a>
+            <a href="#academic-recognition">Recognition</a>
             <a href="#work">Selected Work</a>
             <a href="#skills">Software & Skills</a>
             <a href="#approach">Approach</a>
@@ -151,6 +154,11 @@ export default function Home() {
           <div className="hero-location">
             <MapPin size={14} /> {SITE_CONFIG.location} <span>·</span>{" "}
             {SITE_CONFIG.university} ({SITE_CONFIG.degree}, {SITE_CONFIG.graduationYears})
+          </div>
+
+          <div className="hero-cert-highlight">
+            <Award size={13} />
+            <span>Top 20% · Industrial Design · Banasthali Vidyapith · 2026</span>
           </div>
         </motion.div>
 
@@ -331,7 +339,20 @@ export default function Home() {
                       <b>{workshop.institution}</b>
                       <span className="workshop-topic">{workshop.topic}</span>
                     </div>
-                    <span className="workshop-tag">{workshop.type}</span>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <span className="workshop-tag">{workshop.type}</span>
+                      {"certificatePath" in workshop && workshop.certificatePath && (
+                        <a
+                          href={workshop.certificatePath}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="workshop-scan-link"
+                          title={`View verified certificate scan for ${workshop.topic}`}
+                        >
+                          <FileCheck2 size={12} /> View Scan
+                        </a>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -339,6 +360,9 @@ export default function Home() {
           </div>
         </div>
       </motion.section>
+
+      {/* Official Academic Recognition Certificate */}
+      <AcademicCertificateCard />
 
       {/* Software and Skills Section */}
       <motion.section
