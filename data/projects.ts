@@ -456,7 +456,7 @@ export const PROJECTS: Project[] = [
     year: "5th Semester, 2025",
     image: "/images/dining-chair.webp",
     imageAlt:
-      "Sculptural wooden dining chair prototype with curved solid wood frame, woven cord detailing, and textured neutral upholstery",
+      "Custom solid hardwood dining chairs and table suite arranged in an elegant sunlit dining hall with arched floor-to-ceiling windows overlooking a landscaped garden",
     summary:
       "A dining-chair exploration where organic curves express both support and openness, balancing ergonomic comfort with a sculptural presence.",
     detail:
