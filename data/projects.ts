@@ -286,7 +286,8 @@ export const PROJECTS: Project[] = [
     place: "Banasthali Vidyapith, Jaipur, Rajasthan",
     year: "6th Semester, 2026",
     image: "/images/universal-toilet.webp",
-    imageAlt: "Universal Toilet institutional design drawing and technical presentation board",
+    imageAlt:
+      "Universal Toilet / Special Ability WC architectural technical sheet featuring furniture layout with wheelchair turning radii, longitudinal and cross sections, flooring layout, and MoHUA barrier-free guidelines at Architecture Department, Banasthali Vidyapith",
     summary:
       "An accessible toilet-design project responding to an existing institutional facility, making everyday use clearer and more comfortable.",
     detail:
@@ -323,26 +324,32 @@ export const PROJECTS: Project[] = [
       ],
       technicalDrawings: [
         {
-          title: "Existing vs Proposed Comparative Floor Plan",
+          title: "Furniture Layout & Wheelchair Turning Radii (Plan 1/5)",
           description:
-            "Side-by-side architectural plan showing existing layout deficiencies and the optimized accessible configuration."
+            "Architectural floor plan (28' × 13' / 364 sq.ft.) mapping wheelchair turning circles, outward-opening 900mm doors, side transfers, and dual washbasin clearance."
         },
         {
-          title: "Detailed Dimensioned Layout Plan",
+          title: "Cross Section & Washbasin Counter Details (Section 2/6)",
           description:
-            "Complete dimensioned plan with clearance radiuses, door swing directions, and plumbing fixture locations."
+            "Sectional elevation detailing accessible dual washbasin counter heights (3'-0½\"), knee clearances (2'-2\"), mirrors, and side-by-side accessible WC cubicles."
         },
         {
-          title: "Internal Wall Elevations & Mounting Heights",
+          title: "Longitudinal Section & Grab Bar Elevations (Section 3/6)",
           description:
-            "Dimensioned elevations indicating exact installation heights for support grab bars, mirrors, and dispensers."
+            "Technical section specifying standard 1'-7\" WC pan height, 2'-9\" to 3'-0\" safety grab rails, and barrier-free access door signage."
+        },
+        {
+          title: "Flooring Layout & Tile Grid (Plan 1/6)",
+          description:
+            "Tile setting plan specifying slope to nahani trap and non-slip surface alignment across wet and dry zones."
         }
       ],
       materialsFinishes: [
-        "Anti-slip matte ceramic floor tiles with high wet-traction rating",
-        "Glazed wall tiles facilitating rapid daily institutional sanitization",
-        "Corrosion-resistant stainless steel (Grade 304) grab rails with textured knurled grip",
-        "Durable phenolic laminate partition doors with emergency release latch hardware"
+        "Floor Finish: Anti-skid ceramic / vitrified tiles with matte textured finish for wet traction",
+        "Wall Finish: Gloss / semi-gloss ceramic wall tiles up to 2100 mm for easy cleaning and hygiene",
+        "Doors: Laminated waterproof flush / PVC doors (900 mm clear opening, outward swing)",
+        "Door Frames: Hardwood / powder-coated metal frame (minimum 100 mm frame thickness)",
+        "Special Ability Fixtures: MoHUA compliant stainless steel grab bars, long-hand lever taps, and recessed knee-clearance basins"
       ],
       finalOutcome:
         "A rigorous institutional redesign proposal documented through site photographs, existing vs proposed comparisons, detailed architectural technical drawings, and a clean material board.",
@@ -352,9 +359,9 @@ export const PROJECTS: Project[] = [
         "Specifying appropriate durable, slip-resistant, and low-maintenance institutional materials"
       ],
       keyHighlights: [
-        "Zero-threshold floor transition facilitating smooth barrier-free entry",
-        "Ergonomic continuous support bars for independent and dignified user assistance",
-        "Intuitive circulation separating handwashing zones from toilet cubicles"
+        "Compliant with MoHUA Harmonised Guidelines and Space Standards for Barrier-Free Environment",
+        "Generous 28' × 13' (364 sq.ft.) footprint accommodating independent wheelchair turning & transfers",
+        "Outward-swinging 900mm doors with emergency release hardware and zero-threshold transitions"
       ]
     }
   },
