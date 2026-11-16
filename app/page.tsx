@@ -41,7 +41,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ProjectCaseStudyModal from "@/components/ProjectCaseStudyModal";
 import MobileMenuDrawer from "@/components/MobileMenuDrawer";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
-import AcademicCertificateCard from "@/components/AcademicCertificateCard";
+import CertificationsGallery from "@/components/CertificationsGallery";
 
 const BOOK_URL = SITE_CONFIG.portfolioBookUrl;
 const RESUME_URL = SITE_CONFIG.resumeDownloadUrl;
@@ -84,7 +84,7 @@ export default function Home() {
 
           <nav className="main-nav" aria-label="Main navigation">
             <a href="#about">About & CV</a>
-            <a href="#academic-recognition">Recognition</a>
+            <a href="#certifications">Certifications</a>
             <a href="#work">Selected Work</a>
             <a href="#skills">Software & Skills</a>
             <a href="#approach">Approach</a>
@@ -361,8 +361,8 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Official Academic Recognition Certificate */}
-      <AcademicCertificateCard />
+      {/* Certifications & Achievements Gallery */}
+      <CertificationsGallery />
 
       {/* Software and Skills Section */}
       <motion.section

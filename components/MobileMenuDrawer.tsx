@@ -22,7 +22,7 @@ type Props = {
 
 const NAV_LINKS = [
   { href: "#about", label: "About & CV", number: "01" },
-  { href: "#academic-recognition", label: "Academic Recognition", number: "02" },
+  { href: "#certifications", label: "Certifications & Achievements", number: "02" },
   { href: "#work", label: "Selected Projects", number: "03" },
   { href: "#skills", label: "Software & Capabilities", number: "04" },
   { href: "#approach", label: "Design Approach", number: "05" },
