@@ -373,7 +373,8 @@ export const PROJECTS: Project[] = [
     place: "Ahmedabad, Gujarat",
     year: "5th Semester, 2025",
     image: "/images/shulabh.webp",
-    imageAlt: "Shulabh residential design plan and interior presentation board",
+    imageAlt:
+      "Shulabh residential balcony design 3D visualization featuring terracotta jaali screen, wooden armchair with sage cushion, round coffee table, and illuminated shelves in Ahmedabad, Gujarat",
     summary:
       "A residential concept built around simplicity, thermal comfort and thoughtful everyday living.",
     detail:
@@ -426,6 +427,7 @@ export const PROJECTS: Project[] = [
         }
       ],
       materialsFinishes: [
+        "Terracotta brick jaali (lattice) screen filtering sunlight and promoting passive cross-ventilation",
         "Polished Kota stone flooring providing a cool natural surface underfoot",
         "Natural lime-wash wall finish that breathes and reflects indirect daylight",
         "Solid reclaimed teak wood for custom interior furniture and window louvers",
