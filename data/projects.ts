@@ -443,7 +443,8 @@ export const PROJECTS: Project[] = [
     place: "Furniture Design Studio",
     year: "5th Semester, 2025",
     image: "/images/dining-chair.webp",
-    imageAlt: "Dining Chair concept sketches, prototypes and design development board",
+    imageAlt:
+      "Sculptural wooden dining chair prototype with curved solid wood frame, woven cord detailing, and textured neutral upholstery",
     summary:
       "A dining-chair exploration where organic curves express both support and openness, balancing ergonomic comfort with a sculptural presence.",
     detail:
