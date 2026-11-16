@@ -134,6 +134,14 @@ export default function ProjectCaseStudyModal({
               <span>PROJECT {project.number} OF 06</span>
               <span className="dot-sep">·</span>
               <span>{project.category}</span>
+              <span className="dot-sep">·</span>
+              <a
+                href={`/projects/${project.slug}`}
+                className="modal-full-page-pill-link"
+                title="Open dedicated case study page"
+              >
+                Dedicated Page ↗
+              </a>
             </div>
 
             <button

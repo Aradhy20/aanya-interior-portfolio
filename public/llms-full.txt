@@ -1,0 +1,201 @@
+# Aanya Jain — Comprehensive Design Portfolio & Technical Case Studies (llms-full.txt)
+
+Canonical Source: https://aanya-interior-portfolio.vercel.app/
+Author: Aanya Jain (Interior & Industrial Design Student, Banasthali Vidyapith)
+Contact: aanyachandoriya2@gmail.com | +91 7454876841 | Agra, Uttar Pradesh, India
+Academic Distinction: Top 20% in Industrial Design Branch (Certificate DD/ADMIN/2026/03/004)
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+1. Biography, Education & Verified Credentials
+2. Core Capabilities & Software Proficiency
+3. Methodology: Observe, Imagine, Resolve
+4. Project 01: Worker’s Module (Bagru, Rajasthan)
+5. Project 02: Centre Table (Furniture Design Studio)
+6. Project 03: Tide & Terra (Kothrud, Pune)
+7. Project 04: Universal Toilet (Banasthali Vidyapith)
+8. Project 05: Shulabh (Ahmedabad, Gujarat)
+9. Project 06: Dining Chair (Furniture Design Studio)
+10. Frequently Asked Questions (AEO/AI Answers)
+11. Verified Contact & Portfolio Links
+
+================================================================================
+1. BIOGRAPHY, EDUCATION & VERIFIED CREDENTIALS
+================================================================================
+Aanya Jain is an Indian interior and industrial design student in her 7th semester of the Bachelor of Design (B.Des) program at Banasthali Vidyapith, Rajasthan (2023–2027). She was officially certified among the top 20% of students in the Industrial Design branch based on total marks secured during the 6th semester.
+
+Education Timeline:
+- 2023–2027: Bachelor’s in Design (B.Des), Department of Design, Banasthali Vidyapith, Rajasthan.
+- Class XII (Senior Secondary): Divine International Academy, Sirsaganj, Firozabad, UP (CBSE, PCM Stream, 88.4%).
+- Class X (Secondary): Divine International Academy, Sirsaganj, Firozabad, UP (CBSE, 91.6%).
+
+Verified Workshops & Certifications:
+- TRYST-2025, IIT Delhi: Interior Design Basics & Entrepreneurship (02 March 2025).
+- Techfest, IIT Bombay: AutoCAD Workshop (22–24 December 2025).
+- Banasthali Vidyapith: Top 20% Academic Recognition (09 March 2026).
+- Banasthali Vidyapith: Game 3D Sculpting using ZBrush (26–30 December 2024).
+- Banasthali Vidyapith: Second Position in Mehndi Competition (26 July 2025).
+- be10x: AI Tools & ChatGPT Workshop (22 March 2026).
+- TEMPLE: OTT Made an Industry — Employability & Leadership (2023–2024).
+
+================================================================================
+2. CORE CAPABILITIES & SOFTWARE PROFICIENCY
+================================================================================
+Design Capabilities:
+- Trend forecasting and contextual market research
+- Furniture layouts and spatial optimization
+- Natural daylighting and artificial lighting planning
+- Creative problem-solving and needs-based ideation
+- Sustainable design thinking and vernacular passive cooling
+- Ergonomic design thinking and anthropometric data validation
+- Spatial planning and barrier-free circulation
+- Material exploration (wood, metal, terracotta, natural stone, textiles)
+
+Software Toolkit:
+- AutoCAD: 2D architectural plans, technical elevations, and joinery details.
+- SketchUp: 3D spatial massing, volume exploration, and fast prototyping.
+- 3ds Max: High-fidelity photorealistic rendering and atmospheric lighting simulations.
+- Rayon: Architectural space planning and layout generation.
+- Adobe Illustrator: Vector diagrams, presentation boards, and infographics.
+- Adobe Photoshop: Post-production image enhancement and material moodboards.
+- Canva: Graphic typography and editorial layout composition.
+
+================================================================================
+3. METHODOLOGY: OBSERVE, IMAGINE, RESOLVE
+================================================================================
+Pillar 01 — Observe:
+Deeply understand the site, microclimate, sun/wind orientations, and daily human rituals that shape spatial function.
+
+Pillar 02 — Imagine:
+Explore forms, tactile materials, and spatial arrangements that solve verified human needs while fostering emotional calm and character.
+
+Pillar 03 — Resolve:
+Translate conceptual ideas into dimensioned architectural drawings, joinery assemblies, specifications, and realistic 3D visualizations that guide fabrication.
+
+================================================================================
+4. PROJECT 01: WORKER’S MODULE
+================================================================================
+- URL: https://aanya-interior-portfolio.vercel.app/projects/workers-module-bagru
+- Typology: Spatial Design / Modular Shelter
+- Location: Bagru, Rajasthan (7-acre parcel)
+- Academic Level: 7th Semester, 2026
+
+Design Brief & Problem Statement:
+Construction workers in arid Rajasthan endure extreme conditions without basic amenities. Long-term sites house families with children, yet lack thermal shade, clean water, secure personal storage, and sanitary facilities. The challenge was to design a temporary, low-cost modular habitat using rapid-assembly techniques that actively responds to harsh sun (up to 45°C), hot winds, and site setback regulations.
+
+Research & Site Analysis:
+- Climatic conditions: Severe Northwest afternoon solar radiation and Southwest monsoon wind vectors.
+- Regulatory constraints: Mandatory 9.0m setbacks along boundary walls and a 12.0m primary access road.
+- Circulation: Clear division between heavy construction machinery traffic and pedestrian domestic zones.
+
+Spatial Resolution & Materials:
+- Zoning into Modules A & B (family resting/sleeping), Module C (dining & potable water), Module D (sanitary block & child play), and Module E (equipment checkpoint).
+- Lightweight galvanized steel tubular framing with socket joints for demountability.
+- Woven bamboo/reed thatch panels, reflective composite corrugated roofing, and compacted stabilized earth floors.
+
+================================================================================
+5. PROJECT 02: CENTRE TABLE
+================================================================================
+- URL: https://aanya-interior-portfolio.vercel.app/projects/centre-table-furniture-design
+- Typology: Furniture Design / Multifunctional Living Room Table
+- Location: Furniture Design Studio, Banasthali Vidyapith
+- Academic Level: 7th Semester, 2026
+
+Design Brief & Problem Statement:
+Compact urban apartments face acute floor space constraints. Traditional additional seating clutters living rooms. The brief was to design a coffee table accommodating four concealed nesting stools that tuck neatly underneath the table apron when not in use.
+
+Research & Kinematics:
+- Ergonomics: Coffee table height at 440mm; stool seat height at 380mm; comfortable reach radius.
+- Kinematic tolerance: 30mm sliding clearance to ensure effortless pull-out without scraping or jamming.
+- Structural stability: Continuous bent tubular cantilever runners distributing weight evenly across floor surfaces.
+
+Materials & Finishes:
+- Natural grain solid timber slats with clear matte protective polyurethane sealer.
+- 25mm mild steel circular tubing with powder-coated matte finish.
+- High-density cushioned upholstery on stool tops with high-traction floor glide inserts.
+
+================================================================================
+6. PROJECT 03: TIDE & TERRA
+================================================================================
+- URL: https://aanya-interior-portfolio.vercel.app/projects/tide-and-terra-rooftop-cafe-pune
+- Typology: Spatial Design / Rooftop Hospitality
+- Location: Kothrud, Pune, Maharashtra
+- Academic Level: 6th Semester, 2026
+
+Design Narrative & Concept:
+"Blend of Cave and Sky" — exploring the meeting point of earth ("Terra") and ocean ("Tide"). It resolves the climatic dilemma of rooftop dining in Western India, where harsh afternoon solar heat and sudden monsoon squalls often ruin outdoor experiences.
+
+Spatial Planning:
+- Sunken ocean-blue lounge banquettes creating intimate, wind-sheltered conversation alcoves.
+- Elevated timber dining deck with umbrella-shaded tables for open panoramic skyline viewing.
+- Perimetric natural travertine stone piers framing sightlines toward Pune's distant hills.
+- Central sheltered cocktail and service pavilion ensuring efficient waiter transit loops.
+
+Materials & Lighting:
+- Honed travertine stone blocks, weather-sealed teak wood decking, ocean-blue outdoor upholstery.
+- Recessed 2700K floor wash LEDs under seating plinths and ambient tabletop hurricane lanterns.
+
+================================================================================
+7. PROJECT 04: UNIVERSAL TOILET
+================================================================================
+- URL: https://aanya-interior-portfolio.vercel.app/projects/universal-toilet-accessible-design
+- Typology: Spatial Design / Institutional Sanitation Retrofit
+- Location: Architecture Department, Banasthali Vidyapith, Rajasthan
+- Academic Level: 6th Semester, 2026
+
+Design Brief & Regulatory Standards:
+Reconfigure an existing campus restroom facility suffering from awkward clearances and lack of accessibility into a 364 sq.ft. (28' × 13') universal barrier-free facility fully compliant with MoHUA (Ministry of Housing and Urban Affairs, Government of India) Harmonised Guidelines.
+
+Technical Specifications:
+- Circulation: Continuous 1500mm wheelchair turning circles and flush zero-threshold doorways.
+- Doors: 900mm wide waterproof laminated flush doors swinging outward with emergency privacy release hardware.
+- Counter & Basins: Dual-height washbasins at 3'-0½\" counter height with 2'-2\" recessed knee clearance.
+- Cubicles: 1'-7\" WC pan height, 2'-9\" to 3'-0\" knurled Grade 304 stainless steel grab rails, and side transfer space.
+- Flooring: Anti-skid ceramic/vitrified tiles with non-slip matte texture sloped directly to nahani drainage traps.
+
+================================================================================
+8. PROJECT 05: SHULABH
+================================================================================
+- URL: https://aanya-interior-portfolio.vercel.app/projects/shulabh-residential-interior-ahmedabad
+- Typology: Spatial Design / Residential Balcony & Living
+- Location: Ahmedabad, Gujarat
+- Academic Level: 5th Semester, 2025
+
+Design Narrative:
+"The Art of Simple Living" — addressing Ahmedabad's hot-arid climate (temperatures exceeding 42°C) through vernacular passive cooling strategies rather than continuous mechanical air conditioning.
+
+Architectural Strategies:
+- Deep transition balcony acting as a thermal buffer between external heat and interior living areas.
+- Perforated terracotta brick jaali screen filtering harsh sunlight into soft, dappled illumination while allowing continuous cross-ventilation.
+- Polished natural Kota stone flooring providing cool underfoot surfaces.
+- Breathable natural lime-wash wall finish reflecting indirect daylight without chemical emissions.
+- Custom solid teak wood furniture, fluted coffee table, and floating shelves with warm 2700K LED illumination.
+
+================================================================================
+9. PROJECT 06: DINING CHAIR
+================================================================================
+- URL: https://aanya-interior-portfolio.vercel.app/projects/dining-chair-furniture-design
+- Typology: Furniture Design / Ergonomic Seating
+- Location: Furniture Design Studio, Banasthali Vidyapith
+- Academic Level: 5th Semester, 2025
+
+Concept & Prototyping:
+"Protection & Openness" — sculpting a wooden dining chair that cradles the user's thoracic and lumbar spine (protection) while remaining visually light and transparent across dining table horizons (openness).
+
+Ergonomics & Craftsmanship:
+- Anthropometric validation: Backrest angle at 100°; seat height at 450mm; seat depth at 430mm.
+- Prototyping: Validated through 1:5 scale clay/wire models and a full-scale 1:1 physical ergonomic prototype.
+- Joinery: Mortise-and-tenon joints handling dynamic cantilever load, paired with hand-rubbed oil finish.
+- Woven cord detailing across the lower back providing flexible ergonomic tension.
+- Spatial visualization: Complete 8-seater dining suite in a sunlit hall with arched garden-view windows.
+
+================================================================================
+10. CONTACT & PORTFOLIO ACCESS
+================================================================================
+- Email: aanyachandoriya2@gmail.com
+- Telephone: +91 7454876841
+- Geographic Location: Agra, Uttar Pradesh, 283151, India
+- Website: https://aanya-interior-portfolio.vercel.app/
+- Live Flipbook: https://heyzine.com/flip-book/4908923594.html
+- Resume Download: https://aanya-interior-portfolio.vercel.app/downloads/Aanya-Jain-Resume.pdf

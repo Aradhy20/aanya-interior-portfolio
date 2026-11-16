@@ -27,7 +27,8 @@ const NAV_LINKS = [
   { href: "#skills", label: "Software & Capabilities", number: "04" },
   { href: "#approach", label: "Design Approach", number: "05" },
   { href: "#archive", label: "Portfolio Book & QR", number: "06" },
-  { href: "#contact", label: "Contact & Resume", number: "07" }
+  { href: "#faq", label: "Frequently Asked Questions", number: "07" },
+  { href: "#contact", label: "Contact & Resume", number: "08" }
 ];
 
 export default function MobileMenuDrawer({ isOpen, onClose }: Props) {

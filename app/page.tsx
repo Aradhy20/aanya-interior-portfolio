@@ -42,6 +42,7 @@ import ProjectCaseStudyModal from "@/components/ProjectCaseStudyModal";
 import MobileMenuDrawer from "@/components/MobileMenuDrawer";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
 import CertificationsGallery from "@/components/CertificationsGallery";
+import FaqSection from "@/components/FaqSection";
 
 const BOOK_URL = SITE_CONFIG.portfolioBookUrl;
 const RESUME_URL = SITE_CONFIG.resumeDownloadUrl;
@@ -89,6 +90,7 @@ export default function Home() {
             <a href="#skills">Software & Skills</a>
             <a href="#approach">Approach</a>
             <a href="#archive">Portfolio Book</a>
+            <a href="#faq">FAQ</a>
             <a
               href={RESUME_URL}
               download="Aanya-Jain-Resume.pdf"
@@ -515,6 +517,9 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Frequently Asked Questions (FAQ / AEO Section) */}
+      <FaqSection />
+
       {/* Contact Section With QR Code & Resume */}
       <motion.section
         className="contact-section"
@@ -644,6 +649,12 @@ export default function Home() {
           </a>
           <span>Designed with curiosity · 2026</span>
           <div className="footer-links">
+            <a href="#about">About</a>
+            <span>·</span>
+            <a href="#work">Work</a>
+            <span>·</span>
+            <a href="#faq">FAQ</a>
+            <span>·</span>
             <a href={RESUME_URL} download="Aanya-Jain-Resume.pdf">
               Resume PDF
             </a>
