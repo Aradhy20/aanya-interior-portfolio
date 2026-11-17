@@ -47,7 +47,7 @@ button { font: inherit; }
 }
 .nav-contact { display: flex; align-items: center; gap: 8px; padding: 11px 15px; border: 1px solid #a6b4a8; }
 .mobile-toggle { display: none; border: 0; background: transparent; padding: 8px; color: var(--ink); }
-.hero { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 9%; padding-top: 76px; padding-bottom: 88px; min-height: 620px; }
+.hero { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 9%; padding-top: 48px; padding-bottom: 56px; min-height: auto; }
 .eyebrow { display: flex; align-items: center; gap: 11px; font-size: 9px; letter-spacing: 2.2px; font-weight: 700; color: var(--sage-dark); margin: 0 0 25px; }
 .eyebrow-dot { width: 7px; height: 7px; background: var(--sage); border-radius: 50%; }
 .eyebrow-line { display: inline-block; width: 43px; height: 1px; background: #9aab9b; }
@@ -655,7 +655,25 @@ button { font: inherit; }
 .portrait-stamp { position: absolute; right: 0; bottom: 28px; background: var(--paper); padding: 13px 17px; display: flex; gap: 10px; align-items: center; box-shadow: 0 10px 30px #25372a18; }
 .portrait-stamp > span { font: 26px var(--serif); color: var(--sage-dark); }
 .portrait-stamp small { font-size: 8px; letter-spacing: 1.5px; line-height: 1.5; }
-.hero-note { position: absolute; left: -54px; bottom: 34px; display: flex; gap: 20px; align-items: center; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); z-index: 3; }
+.hero-note {
+  position: absolute;
+  left: -24px;
+  bottom: 24px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 9.5px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(247, 244, 238, 0.94);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  z-index: 4;
+}
 .hero-note span:first-child { color: var(--sage-dark); font-weight: 700; }
 .hero-orbit { position: absolute; width: 100px; height: 100px; border: 1px solid #b9c5b7; border-radius: 50%; right: -42px; top: 42px; z-index: 1; }
 .hero-orbit:before, .hero-orbit:after { content: ''; position: absolute; border: 1px solid #b9c5b7; border-radius: 50%; inset: 12px; }

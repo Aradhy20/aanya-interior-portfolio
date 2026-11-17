@@ -5,11 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowDown, Download, ArrowUpRight, MapPin, Award, Sparkles } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-config";
 
-interface HeroInteractiveProps {
-  introFinished: boolean;
-}
-
-export default function HeroInteractive({ introFinished }: HeroInteractiveProps) {
+export default function HeroInteractive() {
   const frameRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -54,9 +50,9 @@ export default function HeroInteractive({ introFinished }: HeroInteractiveProps)
       {/* Left Copy Column */}
       <motion.div
         className="hero-copy"
-        initial={{ opacity: 0, y: 32 }}
-        animate={introFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
-        transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+        initial={{ opacity: 0, y: 22 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="eyebrow">
           <span className="eyebrow-dot" /> {SITE_CONFIG.studentStatus.toUpperCase()}{" "}
@@ -106,9 +102,9 @@ export default function HeroInteractive({ introFinished }: HeroInteractiveProps)
 
         <motion.div
           className="hero-cert-highlight"
-          initial={{ opacity: 0, x: -16 }}
-          animate={introFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.3 }}
         >
           <Award size={13} className="hero-cert-icon" />
           <span>Top 20% · Industrial Design · Banasthali Vidyapith · 2026</span>
@@ -121,9 +117,9 @@ export default function HeroInteractive({ introFinished }: HeroInteractiveProps)
       {/* Right Visual Column with 3D Tilt & Parallax */}
       <motion.div
         className="hero-visual"
-        initial={{ opacity: 0, scale: 0.94 }}
-        animate={introFinished ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.94 }}
-        transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
         ref={frameRef}
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
@@ -182,9 +178,9 @@ export default function HeroInteractive({ introFinished }: HeroInteractiveProps)
         {/* Counter Note */}
         <motion.div
           className="hero-note"
-          initial={{ opacity: 0, y: 10 }}
-          animate={introFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
         >
           <span>01 / 06</span>
           <span>

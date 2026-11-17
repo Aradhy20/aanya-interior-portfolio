@@ -43,7 +43,6 @@ import MobileMenuDrawer from "@/components/MobileMenuDrawer";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
 import CertificationsGallery from "@/components/CertificationsGallery";
 import FaqSection from "@/components/FaqSection";
-import WebsiteIntro from "@/components/WebsiteIntro";
 import CustomCursor from "@/components/CustomCursor";
 import HeroInteractive from "@/components/HeroInteractive";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -55,7 +54,6 @@ export default function Home() {
   const [filter, setFilter] = useState<ProjectFilter>("All");
   const [selected, setSelected] = useState<Project | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [introFinished, setIntroFinished] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("top");
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -96,9 +94,6 @@ export default function Home() {
 
   return (
     <main id="top">
-      {/* Cinematic Opening Intro Animation */}
-      <WebsiteIntro onComplete={() => setIntroFinished(true)} />
-
       {/* Desktop Custom Follower Cursor */}
       <CustomCursor />
 
@@ -171,7 +166,7 @@ export default function Home() {
       <MobileMenuDrawer isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
       {/* Hero Section with 3D Tilt, Parallax & Interactive Reveal */}
-      <HeroInteractive introFinished={introFinished} />
+      <HeroInteractive />
 
       {/* Infinite Marquee Ticker */}
       <InfiniteMarquee />
