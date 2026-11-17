@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { SITE_CONFIG } from "@/data/site-config";
+import ProjectGallerySwipeable from "@/components/ProjectGallerySwipeable";
 
 type Props = {
   project: Project | null;
@@ -37,10 +38,12 @@ export default function ProjectCaseStudyModal({
 }: Props) {
   const [activeTab, setActiveTab] = useState<TabKey>("overview");
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxData, setLightboxData] = useState<{ src: string; caption: string } | null>(null);
 
   useEffect(() => {
     setActiveTab("overview");
     setLightboxOpen(false);
+    setLightboxData(null);
   }, [project?.number]);
 
   const currentIndex = project
@@ -154,32 +157,15 @@ export default function ProjectCaseStudyModal({
             </button>
           </div>
 
-          {/* Modal Hero Visual */}
+          {/* Modal Swipeable Hero Visual Gallery */}
           <div className="case-study-hero">
-            <div className="case-study-media-wrapper">
-              <img
-                src={project.image}
-                alt={project.imageAlt}
-                className="case-study-hero-img"
-              />
-              <button
-                type="button"
-                className="case-study-zoom-btn"
-                onClick={() => setLightboxOpen(true)}
-                aria-label="Enlarge presentation board"
-                title="Click to view high-resolution presentation board"
-              >
-                <Maximize2 size={15} />
-                <span>Enlarge presentation board</span>
-              </button>
-              <div className="case-study-hero-badge">
-                <Calendar size={13} />
-                <span>{caseStudy.semester}</span>
-                <span className="dot-sep">·</span>
-                <MapPin size={13} />
-                <span>{caseStudy.location}</span>
-              </div>
-            </div>
+            <ProjectGallerySwipeable
+              project={project}
+              onOpenLightbox={(src, caption) => {
+                setLightboxData({ src, caption });
+                setLightboxOpen(true);
+              }}
+            />
           </div>
 
           {/* Project Title & Context Bar */}
@@ -465,13 +451,13 @@ export default function ProjectCaseStudyModal({
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={project.image}
-                alt={project.imageAlt}
+                src={lightboxData?.src || project.image}
+                alt={lightboxData?.caption || project.imageAlt}
                 className="lightbox-img"
               />
               <div className="lightbox-caption">
                 <strong>PROJECT {project.number} · {project.title}</strong>
-                <span>{project.type} · {caseStudy.location} ({caseStudy.semester})</span>
+                <span>{lightboxData?.caption || `${project.type} · ${caseStudy.location} (${caseStudy.semester})`}</span>
               </div>
             </div>
           </motion.div>

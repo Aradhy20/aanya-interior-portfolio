@@ -11,7 +11,9 @@ import {
   FileCheck2,
   ShieldCheck,
   Sparkles,
-  ArrowUpRight
+  ArrowUpRight,
+  SlidersHorizontal,
+  LayoutGrid
 } from "lucide-react";
 import {
   CERTIFICATES_DATA,
@@ -21,11 +23,14 @@ import {
 } from "@/data/certificates";
 import CertificateCard from "@/components/CertificateCard";
 import CertificateModal from "@/components/CertificateModal";
+import CertificatesCarousel from "@/components/CertificatesCarousel";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 export default function CertificationsGallery() {
   const [activeFilter, setActiveFilter] =
     useState<CertificateCategory>("All Certificates");
   const [selectedCert, setSelectedCert] = useState<CertificateItem | null>(null);
+  const [viewMode, setViewMode] = useState<"carousel" | "grid">("carousel");
 
   // Filtered certificates based on active tab
   const filteredCertificates = useMemo(() => {
@@ -93,14 +98,20 @@ export default function CertificationsGallery() {
 
       {/* Featured Academic Recognition Highlight Card (Top 20%) */}
       {featuredCertificate && (
-        <div className="featured-recognition-card">
+        <motion.div
+          className="featured-recognition-card"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="featured-card-content">
             <div className="featured-badge-row">
               <span className="featured-pill-tag">
                 <ShieldCheck size={14} /> OFFICIAL ACADEMIC RECOGNITION
               </span>
               <span className="featured-sub-tag">
-                <Sparkles size={12} /> Top 20% in Industrial Design
+                <Sparkles size={12} /> Top <AnimatedCounter value={20} suffix="%" /> in Industrial Design
               </span>
             </div>
 
@@ -185,33 +196,59 @@ export default function CertificationsGallery() {
               <ShieldCheck size={13} /> Official Scan · Roll Number Protected for Privacy
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
-      {/* Category Filter Tabs */}
-      <div
-        className="cert-filter-bar"
-        role="tablist"
-        aria-label="Filter certificates by category"
-      >
-        {CERTIFICATE_CATEGORIES.map((category) => {
-          const isActive = activeFilter === category;
-          const count = categoryCounts[category] || 0;
+      {/* Category Filter Tabs & View Mode Switcher */}
+      <div className="cert-controls-bar">
+        <div
+          className="cert-filter-bar"
+          role="tablist"
+          aria-label="Filter certificates by category"
+        >
+          {CERTIFICATE_CATEGORIES.map((category) => {
+            const isActive = activeFilter === category;
+            const count = categoryCounts[category] || 0;
 
-          return (
-            <button
-              key={category}
-              type="button"
-              role="tab"
-              aria-selected={isActive}
-              className={`cert-filter-btn ${isActive ? "active" : ""}`}
-              onClick={() => setActiveFilter(category)}
-            >
-              <span>{category}</span>
-              <span className="cert-filter-count">({count})</span>
-            </button>
-          );
-        })}
+            return (
+              <button
+                key={category}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                className={`cert-filter-btn ${isActive ? "active" : ""}`}
+                onClick={() => setActiveFilter(category)}
+              >
+                <span>{category}</span>
+                <span className="cert-filter-count">({count})</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* View Mode Switcher: Carousel vs Grid */}
+        <div className="cert-view-toggle-wrap">
+          <button
+            type="button"
+            className={`cert-view-btn ${viewMode === "carousel" ? "is-active" : ""}`}
+            onClick={() => setViewMode("carousel")}
+            aria-label="Swipeable carousel view"
+            title="Interactive swipeable carousel view"
+          >
+            <SlidersHorizontal size={14} />
+            <span>Carousel</span>
+          </button>
+          <button
+            type="button"
+            className={`cert-view-btn ${viewMode === "grid" ? "is-active" : ""}`}
+            onClick={() => setViewMode("grid")}
+            aria-label="All certificates grid view"
+            title="Full grid view"
+          >
+            <LayoutGrid size={14} />
+            <span>Grid</span>
+          </button>
+        </div>
       </div>
 
       {/* Active Filter Summary Bar */}
@@ -225,23 +262,32 @@ export default function CertificationsGallery() {
         </span>
       </div>
 
-      {/* Certificates Grid: 3-column on desktop, 2 on tablet, 1 on phone */}
-      <motion.div layout className="cert-cards-grid">
-        <AnimatePresence mode="popLayout">
-          {filteredCertificates.map((cert) => (
-            <CertificateCard
-              key={cert.id}
-              certificate={cert}
-              onView={(c) => setSelectedCert(c)}
-            />
-          ))}
-        </AnimatePresence>
-      </motion.div>
+      {/* Dynamic Content Display: Swipeable Carousel or Grid */}
+      {viewMode === "carousel" && filteredCertificates.length > 0 ? (
+        <CertificatesCarousel
+          certificates={filteredCertificates}
+          onView={(c) => setSelectedCert(c)}
+        />
+      ) : (
+        <motion.div layout className="cert-cards-grid">
+          <AnimatePresence mode="popLayout">
+            {filteredCertificates.map((cert) => (
+              <CertificateCard
+                key={cert.id}
+                certificate={cert}
+                onView={(c) => setSelectedCert(c)}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      )}
 
-      {/* Full Image Modal Lightbox */}
+      {/* Full Image Modal Lightbox with Next & Prev navigation */}
       <CertificateModal
         certificate={selectedCert}
+        allCertificates={filteredCertificates}
         onClose={() => setSelectedCert(null)}
+        onSelectCertificate={(c) => setSelectedCert(c)}
       />
     </motion.section>
   );

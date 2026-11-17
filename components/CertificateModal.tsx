@@ -11,25 +11,45 @@ import {
   Building2,
   Calendar,
   ShieldCheck,
+  ChevronLeft,
+  ChevronRight,
   Maximize2
 } from "lucide-react";
 import type { CertificateItem } from "@/data/certificates";
 
 interface CertificateModalProps {
   certificate: CertificateItem | null;
+  allCertificates?: CertificateItem[];
   onClose: () => void;
+  onSelectCertificate?: (cert: CertificateItem) => void;
 }
 
 export default function CertificateModal({
   certificate,
-  onClose
+  allCertificates = [],
+  onClose,
+  onSelectCertificate
 }: CertificateModalProps) {
   const [zoomLevel, setZoomLevel] = useState<number>(1);
 
   // Reset zoom whenever certificate changes
   useEffect(() => {
     setZoomLevel(1);
-  }, [certificate]);
+  }, [certificate?.id]);
+
+  const currentIndex = certificate && allCertificates.length > 0
+    ? allCertificates.findIndex((c) => c.id === certificate.id)
+    : -1;
+
+  const prevCert =
+    currentIndex > 0
+      ? allCertificates[currentIndex - 1]
+      : allCertificates[allCertificates.length - 1];
+
+  const nextCert =
+    currentIndex < allCertificates.length - 1
+      ? allCertificates[currentIndex + 1]
+      : allCertificates[0];
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -41,9 +61,13 @@ export default function CertificateModal({
         setZoomLevel((prev) => Math.max(prev - 0.25, 0.75));
       } else if (e.key === "0") {
         setZoomLevel(1);
+      } else if (e.key === "ArrowLeft" && prevCert && onSelectCertificate) {
+        onSelectCertificate(prevCert);
+      } else if (e.key === "ArrowRight" && nextCert && onSelectCertificate) {
+        onSelectCertificate(nextCert);
       }
     },
-    [onClose]
+    [onClose, prevCert, nextCert, onSelectCertificate]
   );
 
   useEffect(() => {
@@ -91,6 +115,11 @@ export default function CertificateModal({
             <div className="cert-modal-title-group">
               <span className="cert-modal-kicker">
                 {certificate.category.toUpperCase()} · VERIFIED CREDENTIAL
+                {currentIndex >= 0 && (
+                  <span className="cert-modal-counter">
+                    {" "}({currentIndex + 1} of {allCertificates.length})
+                  </span>
+                )}
               </span>
               <h3 id="cert-modal-title" className="cert-modal-title">
                 {certificate.title}
@@ -98,6 +127,30 @@ export default function CertificateModal({
             </div>
 
             <div className="cert-modal-actions">
+              {/* Previous / Next Navigation Controls */}
+              {allCertificates.length > 1 && onSelectCertificate && (
+                <div className="cert-modal-nav-group" role="group" aria-label="Certificate switching">
+                  <button
+                    type="button"
+                    className="cert-nav-btn"
+                    onClick={() => onSelectCertificate(prevCert)}
+                    title={`Previous: ${prevCert.title} (Left Arrow)`}
+                    aria-label="Previous certificate"
+                  >
+                    <ChevronLeft size={16} />
+                  </button>
+                  <button
+                    type="button"
+                    className="cert-nav-btn"
+                    onClick={() => onSelectCertificate(nextCert)}
+                    title={`Next: ${nextCert.title} (Right Arrow)`}
+                    aria-label="Next certificate"
+                  >
+                    <ChevronRight size={16} />
+                  </button>
+                </div>
+              )}
+
               {/* Zoom Controls */}
               <div className="cert-zoom-toolbar" role="group" aria-label="Zoom controls">
                 <button
@@ -159,7 +212,7 @@ export default function CertificateModal({
             </div>
           </div>
 
-          {/* Body with Certificate Scan */}
+          {/* Body with Certificate Scan & Touch Swipe Navigation */}
           <div className="cert-modal-body">
             <div
               className="cert-modal-viewport"
@@ -190,13 +243,34 @@ export default function CertificateModal({
                 )}
               </div>
             </div>
-            <button
-              type="button"
-              className="button button-dark"
-              onClick={onClose}
-            >
-              Close View
-            </button>
+
+            <div className="cert-modal-footer-nav">
+              {allCertificates.length > 1 && onSelectCertificate && (
+                <div className="cert-modal-subnav-links">
+                  <button
+                    type="button"
+                    className="cert-footer-jump-btn"
+                    onClick={() => onSelectCertificate(prevCert)}
+                  >
+                    ← {prevCert.title.slice(0, 24)}...
+                  </button>
+                  <button
+                    type="button"
+                    className="cert-footer-jump-btn"
+                    onClick={() => onSelectCertificate(nextCert)}
+                  >
+                    {nextCert.title.slice(0, 24)}... →
+                  </button>
+                </div>
+              )}
+              <button
+                type="button"
+                className="button button-dark"
+                onClick={onClose}
+              >
+                Close View
+              </button>
+            </div>
           </div>
         </motion.div>
       </motion.div>

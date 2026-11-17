@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowDown,
@@ -43,6 +43,10 @@ import MobileMenuDrawer from "@/components/MobileMenuDrawer";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
 import CertificationsGallery from "@/components/CertificationsGallery";
 import FaqSection from "@/components/FaqSection";
+import WebsiteIntro from "@/components/WebsiteIntro";
+import CustomCursor from "@/components/CustomCursor";
+import HeroInteractive from "@/components/HeroInteractive";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const BOOK_URL = SITE_CONFIG.portfolioBookUrl;
 const RESUME_URL = SITE_CONFIG.resumeDownloadUrl;
@@ -51,15 +55,55 @@ export default function Home() {
   const [filter, setFilter] = useState<ProjectFilter>("All");
   const [selected, setSelected] = useState<Project | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [introFinished, setIntroFinished] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("top");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const visibleProjects = PROJECTS.filter(
     (project) => filter === "All" || project.category === filter
   );
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+
+      const sectionIds = [
+        "contact",
+        "faq",
+        "archive",
+        "approach",
+        "skills",
+        "work",
+        "certifications",
+        "about"
+      ];
+      const scrollPos = window.scrollY + 220;
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(id);
+          return;
+        }
+      }
+      setActiveSection("top");
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <main id="top">
+      {/* Cinematic Opening Intro Animation */}
+      <WebsiteIntro onComplete={() => setIntroFinished(true)} />
+
+      {/* Desktop Custom Follower Cursor */}
+      <CustomCursor />
+
       {/* Site Header */}
-      <header className="site-header">
+      <header className={`site-header ${isScrolled ? "is-scrolled" : ""}`}>
         <div className="shell nav-inner">
           <a
             className="brand"
@@ -84,13 +128,30 @@ export default function Home() {
           </button>
 
           <nav className="main-nav" aria-label="Main navigation">
-            <a href="#about">About & CV</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#work">Selected Work</a>
-            <a href="#skills">Software & Skills</a>
-            <a href="#approach">Approach</a>
-            <a href="#archive">Portfolio Book</a>
-            <a href="#faq">FAQ</a>
+            <a href="#about" className={activeSection === "about" ? "active" : ""}>
+              About & CV
+            </a>
+            <a
+              href="#certifications"
+              className={activeSection === "certifications" ? "active" : ""}
+            >
+              Certifications
+            </a>
+            <a href="#work" className={activeSection === "work" ? "active" : ""}>
+              Selected Work
+            </a>
+            <a href="#skills" className={activeSection === "skills" ? "active" : ""}>
+              Software & Skills
+            </a>
+            <a href="#approach" className={activeSection === "approach" ? "active" : ""}>
+              Approach
+            </a>
+            <a href="#archive" className={activeSection === "archive" ? "active" : ""}>
+              Portfolio Book
+            </a>
+            <a href="#faq" className={activeSection === "faq" ? "active" : ""}>
+              FAQ
+            </a>
             <a
               href={RESUME_URL}
               download="Aanya-Jain-Resume.pdf"
@@ -109,92 +170,8 @@ export default function Home() {
       {/* Mobile Drawer Menu */}
       <MobileMenuDrawer isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
-      {/* Hero Section */}
-      <section className="shell hero">
-        <motion.div
-          className="hero-copy"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="eyebrow">
-            <span className="eyebrow-dot" /> {SITE_CONFIG.studentStatus.toUpperCase()}{" "}
-            <span className="eyebrow-line" />
-          </div>
-          <p className="hero-kicker">
-            {SITE_CONFIG.role} · Spatial Experiences · Furniture Design
-          </p>
-          <h1>
-            Thoughtful spaces.<br />
-            <em>Meaningful</em> living.
-          </h1>
-          <p className="hero-intro">
-            {SITE_CONFIG.profileDescription}
-          </p>
-
-          <div className="hero-actions">
-            <a className="button button-dark" href="#work">
-              Explore Projects <ArrowDown size={15} />
-            </a>
-            <a
-              className="button button-light"
-              href={RESUME_URL}
-              download="Aanya-Jain-Resume.pdf"
-            >
-              <Download size={14} /> Download Resume
-            </a>
-            <a
-              className="text-link"
-              href={BOOK_URL}
-              target="_blank"
-              rel="noreferrer"
-            >
-              View Full Portfolio <ArrowUpRight size={15} />
-            </a>
-          </div>
-
-          <div className="hero-location">
-            <MapPin size={14} /> {SITE_CONFIG.location} <span>·</span>{" "}
-            {SITE_CONFIG.university} ({SITE_CONFIG.degree}, {SITE_CONFIG.graduationYears})
-          </div>
-
-          <div className="hero-cert-highlight">
-            <Award size={13} />
-            <span>Top 20% · Industrial Design · Banasthali Vidyapith · 2026</span>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="hero-visual"
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="portrait-frame">
-            <img
-              src="/images/aanya-portrait.webp"
-              alt="Aanya Jain — Interior and Industrial Design Student"
-            />
-            <div className="portrait-stamp">
-              <span>AJ</span>
-              <small>
-                DESIGN
-                <br />
-                PORTFOLIO
-              </small>
-            </div>
-          </div>
-          <div className="hero-note">
-            <span>01 / 06</span>
-            <span>
-              Academic projects
-              <br />
-              2025—2026
-            </span>
-          </div>
-          <div className="hero-orbit" aria-hidden="true" />
-        </motion.div>
-      </section>
+      {/* Hero Section with 3D Tilt, Parallax & Interactive Reveal */}
+      <HeroInteractive introFinished={introFinished} />
 
       {/* Infinite Marquee Ticker */}
       <InfiniteMarquee />
@@ -322,7 +299,17 @@ export default function Home() {
                     <small className="fact-sub-desc">{fact.details}</small>
                   )}
                 </div>
-                <span className="fact-date">{fact.date}</span>
+                <span className="fact-date">
+                  {fact.date.includes("%") ? (
+                    <AnimatedCounter
+                      value={parseFloat(fact.date)}
+                      decimals={1}
+                      suffix="%"
+                    />
+                  ) : (
+                    fact.date
+                  )}
+                </span>
               </div>
             ))}
 
